@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.recipe.r.ui.activity.mine.AboutActivity">
+
+
+    <include
+        layout="@layout/head_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titler_heoght" />
+
+    <WebView
+        android:id="@+id/agreement_wb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+

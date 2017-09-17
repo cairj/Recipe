@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    android:background="#b3000000" >
+
+    <RelativeLayout
+        android:id="@+id/pop_head"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/pop_windows"
+        android:layout_marginBottom="20dp" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pop_windows"
+        android:layout_width="match_parent"
+        android:layout_height="198dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/backgraound_main" >
+
+        <TextView
+            android:id="@+id/cancle_pop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="取消"
+            android:textColor="#646464"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/published"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:focusable="false"
+            android:text="发表"
+            android:textColor="#b4b4b4"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_pop"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_below="@+id/published"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:gravity="left|top"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_set_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.recipe.r.ui.activity.login.SetUserActivity">
+
+    <include
+        layout="@layout/head_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titler_heoght" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_login_edt_ll"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/name_setuser"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/img_edt_bg"
+            android:gravity="center_vertical"
+            android:hint="给自己设置一个用户名"
+            android:maxLength="18"
+            android:textColor="#000000"
+            android:textColorHint="#ADBABD"
+            android:textCursorDrawable="@drawable/shape_textcursorcolor"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/shape_login_edt_ll"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/passworld_setuser"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/img_edt_bg"
+            android:gravity="center_vertical"
+            android:hint="请输入6-18位字母或者数字密码"
+            android:inputType="textPassword"
+            android:maxLength="18"
+            android:textColor="#000000"
+            android:textColorHint="#ADBABD"
+            android:textCursorDrawable="@drawable/shape_textcursorcolor"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sure_setuser"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/selector_login"
+        android:text="@string/sure_str"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+</LinearLayout>

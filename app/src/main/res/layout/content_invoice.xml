@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/head_title"
+        layout="@layout/head_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titler_heoght"/>
+
+
+    <TextView
+        style="@style/large_lighter_black_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="发票类型" />
+
+    <TextView
+        style="@style/normal_main_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="纸质发票" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/gray" />
+
+    <TextView
+        style="@style/large_lighter_black_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="发票抬头" />
+
+    <TextView
+        android:id="@+id/invoice_selfTv"
+        style="@style/normal_lightest_black_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="个人发票" />
+
+    <TextView
+        android:id="@+id/invoice_unitTv"
+        style="@style/normal_lightest_black_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="单位发票" />
+
+    <EditText
+        android:id="@+id/invoice_Et"
+        style="@style/normal_lightest_black_text"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/gray_stroke_item_unclick"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/invocie_sureTv"
+        style="@style/large_white_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/maincolor_noridus_selector"
+        android:gravity="center"
+        android:text="@string/sure_str" />
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cash_mine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.recipe.r.ui.activity.mine.CashActivity">
+
+    <include
+        layout="@layout/head_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titler_heoght" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="#FFFFFF">
+
+        <!--layout_weight这个属性为权重，让两个textview平分这个linearLayout-->
+        <TextView
+            android:id="@+id/nopay_cash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_menu"
+            android:gravity="center"
+            android:text="@string/sure_cash"
+            android:textColor="@color/main_red"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/history_cash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_menu"
+            android:gravity="center"
+            android:text="@string/no_cash"
+            android:textColor="@color/text_color"
+            android:textSize="20dip" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/scrollbar_cash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout"
+        android:scaleType="matrix"
+        android:src="@mipmap/scrollbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_cash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

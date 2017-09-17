@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/gender_sure" android:state_checked="true" android:state_enabled="true" />
+    <item android:drawable="@mipmap/gender_no" android:state_checked="false" android:state_enabled="true" />
+</selector>

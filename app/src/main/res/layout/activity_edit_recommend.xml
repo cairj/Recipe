@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_release_share"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:scrollbars="none"
+    tools:context="com.recipe.r.ui.activity.share.ReleaseShareActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/head_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titler_heoght" />
+
+        <LinearLayout
+            android:id="@+id/add_recommend_ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="第一步"
+                android:textColor="@color/text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/add_recommend_iv1"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@mipmap/add_release" />
+
+            <TextView
+                android:id="@+id/add_recommend_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="点击添加步骤文字"
+                android:textColor="@color/recommend_tv"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_recommend_ll2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="第二步"
+                android:textColor="@color/text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/add_recommend_iv2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@mipmap/add_release" />
+
+            <TextView
+                android:id="@+id/add_recommend_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="点击添加步骤文字"
+                android:textColor="@color/recommend_tv"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_recommend_ll3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/add_recommend_tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="第三步"
+                android:textColor="@color/text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/add_recommend_iv3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@mipmap/add_release" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="点击添加步骤文字"
+                android:textColor="@color/recommend_tv"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_recommend_ll4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/add_recommend_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="第四步"
+                android:textColor="@color/text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/add_recommend_iv4"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@mipmap/add_release" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="点击添加步骤文字"
+                android:textColor="@color/recommend_tv"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_recommend_ll5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:text="第五步"
+                android:textColor="@color/text_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/add_recommend_iv5"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@mipmap/add_release" />
+
+            <TextView
+                android:id="@+id/add_recommend_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="点击添加步骤文字"
+                android:textColor="@color/recommend_tv"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+    </LinearLayout>
+</ScrollView>

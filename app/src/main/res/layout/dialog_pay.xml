@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/recharge_dialog_detail"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dp_18" />
+
+        <ImageView
+            android:id="@+id/recharge_dialog_close"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="center"
+            android:src="@mipmap/close" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/backgraound_main" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:text="@string/recharge_dialog_choose"
+            android:textColor="@color/text_gray"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/price_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/text_color"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="@color/backgraound_main" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/dialog_zhifubao"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:drawableLeft="@mipmap/zhifubao"
+                android:gravity="center"
+                android:text="@string/recharge_dialog_zhifubao"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/recharge_zhifubao_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_25"
+                android:background="@null"
+                android:button="@drawable/selector_gender"
+                android:checked="true"
+                android:gravity="center"
+                android:src="@drawable/selector_gender" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/dialog_zhifubao"
+            android:layout_marginTop="10dp"
+            android:background="@color/backgraound_main" />
+
+        <RelativeLayout
+            android:id="@+id/dialog_wechat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view_line"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:drawableLeft="@mipmap/weixin"
+                android:gravity="center"
+                android:text="@string/recharge_dialog_wechat"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+
+            <RadioButton
+                android:id="@+id/recharge_wechat_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_25"
+                android:background="@null"
+                android:button="@drawable/selector_gender"
+                android:gravity="center"
+                android:src="@drawable/selector_gender" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/dialog_wechat"
+            android:layout_marginTop="10dp"
+            android:background="@color/backgraound_main" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/dialog_confirm_pay"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/main_red"
+        android:gravity="center"
+        android:text="@string/recharge_dialog_confirm"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+</LinearLayout>

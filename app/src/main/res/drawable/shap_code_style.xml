@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 填充框内的颜色 -->
+
+    <solid android:color="@color/text_bule" />
+    <!-- 边框的颜色 -->
+
+    <stroke
+        android:width="0.5dip"
+        android:color="@color/text_bule" />
+    <!-- 圆角的眼色，bottomRightRadius是左下角而不是右下角，bottomLeftRadius右下角 -->
+
+    <corners android:radius="4dp" />
+
+</shape>

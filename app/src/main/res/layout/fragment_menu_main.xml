@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <!--其他视图-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/head_title"
+            layout="@layout/head_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/titler_heoght" />
+
+        <View
+            android:id="@+id/view_menu"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/head_title"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/rl_menu"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/view_menu"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="4.0">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/comprehensive_ranking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="综合排序"
+                        android:textColor="@color/main_red" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/new_product_attempt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="新品尝试"
+                        android:textColor="@color/text_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/popular_selling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="人气热卖"
+                        android:textColor="@color/text_color" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/menu_search_ll"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.0"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/search_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="搜索"
+                        android:textColor="@color/text_color" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:src="@mipmap/search_menu" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_menu2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/rl_menu"
+            android:background="@color/gray" />
+
+        <!--menu_recyclerview-->
+        <include
+            layout="@layout/refresh_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view_menu2" />
+
+        <ImageView
+            android:id="@+id/no_login_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/no_login"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <!--可以在程序中根据抽屉菜单 切换Fragment-->
+    <FrameLayout
+        android:id="@+id/fragment_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </FrameLayout>
+    <!--右边抽屉菜单-->
+    <RelativeLayout
+        android:id="@+id/menu_layout_right"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="@color/drawer_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/search_tv_drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="25dp"
+            android:text="搜索"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/toolbar_et_search_menu"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/search_tv_drawer"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_rounded_textview"
+            android:drawableLeft="@mipmap/search_gray"
+            android:drawablePadding="10dp"
+            android:hint="@string/search_shop"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/text_gray2"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_et_search_menu"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="25dp"
+            android:text="分类"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_menu1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_class"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/rb1"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/chinese_food"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/rb2"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/soup"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/rb3"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/sashimi"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_menu2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_menu1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/rb4"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/iron_plate"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/rb5"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/wine"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/rb6"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/wine"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_menu2"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/rb7"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/vegetables"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/rb8"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/classification_disclick"
+                android:button="@null"
+                android:text="@string/other"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/reset_menu_btn"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/reset_btn"
+                android:text="重置"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/finish_menu_btn"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1.0"
+                android:background="@mipmap/reset_btn"
+                android:text="完成"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

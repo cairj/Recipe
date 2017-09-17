@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_menu_mine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.recipe.r.ui.activity.menu.MenuMineActivity">
+
+    <include
+        android:id="@+id/head_menu"
+        layout="@layout/head_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titler_heoght" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:layout_below="@+id/head_menu"
+        android:background="#FFFFFF">
+
+        <!--layout_weight这个属性为权重，让两个textview平分这个linearLayout-->
+        <TextView
+            android:id="@+id/nopay_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_menu"
+            android:gravity="center"
+            android:text="未支付外卖"
+            android:textColor="@color/main_red"
+            android:textSize="20dip" />
+
+        <TextView
+            android:id="@+id/history_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_menu"
+            android:gravity="center"
+            android:text="历史外卖"
+            android:textColor="@color/text_color"
+            android:textSize="20dip" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/scrollbar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout"
+        android:scaleType="matrix"
+        android:src="@mipmap/scrollbar" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/scrollbar_menu" />
+
+    <RelativeLayout
+        android:id="@+id/default_result_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/default_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/default_result" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_collection"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/title_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="@+id/iv_collection"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@+id/iv_collection"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/content_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_collection"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_toRightOf="@+id/iv_collection"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/price_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/title_collection"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/backgraound_main" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancel_collection"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/black_btn"
+            android:text="取消收藏"
+            android:textColor="@color/text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/subscribe_collection"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/red_btn"
+            android:text="立即订购"
+            android:textColor="@color/main_red"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/backgraound_main" />
+
+</LinearLayout>

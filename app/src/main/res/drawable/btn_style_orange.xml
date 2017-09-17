@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 填充框内的颜色 -->
+
+
+    <!-- 边框的颜色 -->
+
+    <stroke
+        android:width="0.5dip"
+        android:color="#F7922A" />
+    <!-- 圆角的眼色，bottomRightRadius是左下角而不是右下角，bottomLeftRadius右下角 -->
+
+    <corners android:radius="4dp" />
+
+</shape>

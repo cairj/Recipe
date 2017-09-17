@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_alertdialog_background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/alertdialog_noIv"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="end"
+        android:layout_margin="10dp"
+        android:background="@mipmap/close" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/tip"
+        android:textColor="@color/main_color"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/content_tv"
+        style="@style/normal_main_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/alertdialog_no"
+        style="@style/normal_white_text"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/close"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_selector_main"
+        android:gravity="center" />
+</LinearLayout>

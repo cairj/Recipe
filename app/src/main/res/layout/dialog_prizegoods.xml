@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl_prize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/prize_background">
+
+        <LinearLayout
+            android:id="@+id/home_xrzx_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/title_prize"
+                style="@style/large_lightest_black_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="@string/prize_tip"
+                android:textColor="@color/white"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/content_prize"
+                style="@style/large_lightest_black_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:gravity="center_horizontal"
+                android:text="60元代金券"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/home_xrzx_tc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:background="@mipmap/treasure_prize"
+                android:scaleType="fitXY" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/alertdialog_yes"
+            style="@style/large_white_text"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/home_xrzx_ll"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="22dp"
+            android:background="@mipmap/open_prize"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/alertdialog_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_prize"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@mipmap/prize_close" />
+
+</RelativeLayout>

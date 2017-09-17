@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    android:background="@drawable/shape_wait_dialog"
+    android:layout_width="168dp"
+    android:layout_height="108dp">
+
+    <ImageView
+        android:id="@+id/img_waiting"
+        android:src="@drawable/lading_live"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:id="@+id/text_view_wait_info"
+        android:layout_marginTop="10dp"
+        android:text="加载中..."
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

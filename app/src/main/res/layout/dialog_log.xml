@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="325dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_logdialog">
+
+    <ImageView
+        android:id="@+id/iv_menu_dialog"
+        android:layout_width="325dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/default_photo" />
+
+    <TextView
+        android:id="@+id/title_menu_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/iv_menu_dialog"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:textColor="@color/text_color"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/price_menu_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/title_menu_dialog"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/title_menu_dialog"
+        android:textColor="@color/main_red"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/collection_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/price_menu_dialog"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@+id/price_menu_dialog"
+        android:text="收藏"
+        android:textColor="@color/text_bule"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/addcar_menu_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/iv_menu_dialog"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shape_add_menu"
+        android:padding="5dp"
+        android:text="@string/add_menu"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/content_menu_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title_menu_dialog"
+        android:layout_below="@+id/addcar_menu_dialog"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:text=""
+        android:textColor="@color/text_gray"
+        android:textSize="12sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/content_menu_dialog"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/rb_taste1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_taste"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="原味"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+        <RadioButton
+            android:id="@+id/rb_taste2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_taste"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="不要辣"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+
+
+        <RadioButton
+            android:id="@+id/rb_taste3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_taste"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="加辣"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+    </RadioGroup>
+</RelativeLayout>

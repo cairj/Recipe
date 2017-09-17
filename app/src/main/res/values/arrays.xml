@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="time_spiner">
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+        <item>24:00</item>
+    </string-array>
+
+    <string-array name="taste_array">
+        <item>微辣</item>
+        <item>中辣</item>
+        <item>超辣</item>
+        <item>麻辣</item>
+        <item>酸辣</item>
+        <item>酸甜</item>
+        <item>酸咸</item>
+        <item>咸鲜</item>
+        <item>咸甜</item>
+        <item>原味</item>
+        <item>甜味</item>
+        <item>苦味</item>
+        <item>清淡</item>
+        <item>五香</item>
+        <item>鱼香</item>
+        <item>葱香</item>
+        <item>蒜香</item>
+        <item>奶香</item>
+        <item>酱香</item>
+        <item>糟香</item>
+        <item>咖喱</item>
+        <item>孜然</item>
+        <item>果味</item>
+        <item>香草</item>
+        <item>甜香</item>
+        <item>咸香</item>
+        <item>麻香</item>
+        <item>怪味</item>
+        <item>其他</item>
+    </string-array>
+
+
+    <string-array name="process_array">
+        <item>烧</item>
+        <item>炒</item>
+        <item>爆</item>
+        <item>焖</item>
+        <item>炖</item>
+        <item>蒸</item>
+        <item>煮</item>
+        <item>烤</item>
+        <item>炸</item>
+        <item>烩</item>
+        <item>溜</item>
+        <item>腌</item>
+        <item>卤</item>
+        <item>炝</item>
+        <item>煎</item>
+        <item>酥</item>
+        <item>扒</item>
+        <item>烘培</item>
+        <item>火锅</item>
+        <item>砂锅</item>
+        <item>拔丝</item>
+        <item>生鲜</item>
+        <item>调味</item>
+        <item>技巧</item>
+        <item>煲</item>
+        <item>熏</item>
+        <item>煨</item>
+        <item>烙</item>
+        <item>榨</item>
+        <item>冷冻</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="when_aray">
+        <item>5分钟</item>
+        <item>10分钟</item>
+        <item>20分钟</item>
+        <item>30分钟</item>
+        <item>60分钟</item>
+        <item>180分钟</item>
+        <item>数小时</item>
+        <item>一天</item>
+        <item>数天</item>
+    </string-array>
+</resources>
