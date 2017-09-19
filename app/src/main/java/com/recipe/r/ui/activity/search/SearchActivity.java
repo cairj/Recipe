@@ -376,7 +376,7 @@ public class SearchActivity extends BaseActivity implements SearchView.OnQueryTe
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("goods_id", goodId);
         params.put("type", type);//0，取消收藏，1，收藏，默认为1
         mMyOkhttp.post()
@@ -423,7 +423,7 @@ public class SearchActivity extends BaseActivity implements SearchView.OnQueryTe
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("goods_id", goodId);
         params.put("goods_number", goods_number);
         mMyOkhttp.post()

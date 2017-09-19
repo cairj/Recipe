@@ -318,7 +318,7 @@ public class ReleaseShareActivity extends BaseActivity {
         Gson g = new Gson();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("title", title_release_share.getText().toString());
         params.put("summary", et_release_share.getText().toString());
         String jsonString = g.toJson(file_img);

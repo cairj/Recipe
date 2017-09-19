@@ -110,7 +110,7 @@ public class AdressActivity extends BaseActivity implements
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -200,7 +200,7 @@ public class AdressActivity extends BaseActivity implements
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("address_id", adapter.getItem(position).getAddress_id());
         params.put("status", "1");
         mMyOkhttp.post()

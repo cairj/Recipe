@@ -191,7 +191,7 @@ public class AddressAdapter extends BaseAdapter {
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("address_id", addrid);
         params.put("status", "-1");
         mMyOkhttp.post()

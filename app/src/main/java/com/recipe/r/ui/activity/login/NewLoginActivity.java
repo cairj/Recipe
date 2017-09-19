@@ -144,7 +144,7 @@ public class NewLoginActivity extends BaseActivity implements View.OnClickListen
         Map<String, String> params = new HashMap<>();
         params.put("account", phone);
         params.put("pwd", userPwd_et);
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

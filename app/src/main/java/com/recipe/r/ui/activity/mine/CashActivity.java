@@ -249,7 +249,7 @@ public class CashActivity extends BaseActivity implements View.OnClickListener, 
             params.put("status", type);
         }
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("page", "" + page);
         params.put("limit", "" + limit);
         mMyOkhttp.post()

@@ -326,9 +326,11 @@ public class ShareRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 //            }
 //        }
         MyOkHttp mMyOkhttp = BaseApplication.getInstance().getMyOkHttp();
-        String url = Config.URL + Config.INFORMATIONPRAISE;
+        String url = Config.URL + Config.COMMON_DIGG;
         Map<String, String> params = new HashMap<>();
-        params.put("news_id", news_id);
+        params.put("item_id", news_id);
+        params.put("type", Config.DIGG_SHARE);
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

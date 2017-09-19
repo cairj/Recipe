@@ -31,6 +31,7 @@ import com.recipe.r.R;
 import com.recipe.r.base.BaseApplication;
 import com.recipe.r.base.Config;
 import com.recipe.r.base.ConfigApp;
+import com.recipe.r.entity.BannerModel;
 import com.recipe.r.entity.ShareItem;
 import com.recipe.r.ui.activity.login.LoginActivity;
 import com.recipe.r.ui.activity.share.CommentsCollegeActivity;
@@ -110,7 +111,7 @@ public class ShareFragmentMain extends BaseFragment implements OnRefreshListener
 //            //不显示
         no_login_iv.setVisibility(View.GONE);
 //        }
-        swipeToLoadLayout_ll= (LinearLayout) view.findViewById(R.id.swipeToLoadLayout_ll);
+        swipeToLoadLayout_ll = (LinearLayout) view.findViewById(R.id.swipeToLoadLayout_ll);
         swipeToLoadLayout_ll.setBackgroundColor(getResources().getColor(R.color.white));
         this.swipeToLoadLayout = (SwipeToLoadLayout) view.findViewById(R.id.swipeToLoadLayout);
         this.mRecyclerView = (RecyclerView) view.findViewById(R.id.swipe_target);
@@ -133,7 +134,7 @@ public class ShareFragmentMain extends BaseFragment implements OnRefreshListener
         String url = Config.URL + Config.GETBANNER;
         Map<String, String> params = new HashMap<>();
         params.put("type", "share");
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -151,11 +152,19 @@ public class ShareFragmentMain extends BaseFragment implements OnRefreshListener
                             String info = response.getString("info");
 
                             if (status == 1) {
-                                JSONObject data = response.getJSONObject("data");
+                                /*JSONObject data = response.getJSONObject("data");
                                 JSONArray banner_Images = data.getJSONArray("images");
                                 for (int i = 0; i < banner_Images.length(); i++) {
 
                                     adapter.setBanner(Config.IMAGE_URL + banner_Images.get(i), 1);
+                                }*/
+                                JSONArray data = response.getJSONArray("data");
+                                for (int i = 0; i < data.length(); i++) {
+                                    BannerModel bannerModel = new BannerModel();
+                                    bannerModel.setTips("" + i);
+                                    bannerModel.setImageUrl(Config.IMAGE_URL + data.getJSONObject(i).getString("thumb"));
+                                    bannerModel.setHref(Config.IMAGE_URL + data.getJSONObject(i).getString("href"));
+                                    adapter.setBanner(bannerModel.getImageUrl(), 1);
                                 }
 
                             }
@@ -176,6 +185,7 @@ public class ShareFragmentMain extends BaseFragment implements OnRefreshListener
         params.put("page", "" + page);
         params.put("limit", "" + limit);
         params.put("option", "");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

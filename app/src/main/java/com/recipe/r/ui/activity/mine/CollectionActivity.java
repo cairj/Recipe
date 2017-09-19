@@ -95,7 +95,7 @@ public class CollectionActivity extends BaseActivity implements OnRefreshListene
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("page", "" + page);
         params.put("limit", "" + limit);
         mMyOkhttp.post()

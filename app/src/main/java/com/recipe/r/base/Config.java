@@ -6,6 +6,7 @@ package com.recipe.r.base;
  */
 
 public class Config {
+    public static String DIGG_SHARE="3";//通用点赞中，分享的type是3
     /**
      * 全局变量
      */
@@ -86,4 +87,5 @@ public class Config {
     public static String TAKEMONEY = "/Members/takeMoney";//用户提现
     public static String ORDERSUBMIT = "/Auto/orderSubmit";//购物车下单-订单提交(APP端)
     public static String PAYCONFIRM = "/Auto/payConfirm";//订单支付-支付确认(APP端)
+    public static String COMMON_DIGG = "/Common/digg";//通用点赞
 }

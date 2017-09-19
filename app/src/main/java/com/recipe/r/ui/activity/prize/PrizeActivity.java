@@ -159,7 +159,7 @@ public class PrizeActivity extends BaseActivity implements OnRefreshListener, On
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("page", "" + page);
         params.put("limit", "" + limit);
         mMyOkhttp.post()
@@ -290,7 +290,7 @@ public class PrizeActivity extends BaseActivity implements OnRefreshListener, On
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

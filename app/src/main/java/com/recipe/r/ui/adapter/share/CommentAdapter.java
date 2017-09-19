@@ -305,9 +305,11 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      */
     private void parizeInfo(String news_id) {
         MyOkHttp mMyOkhttp = BaseApplication.getInstance().getMyOkHttp();
-        String url = Config.URL + Config.INFORMATIONPRAISE;
+        String url = Config.URL + Config.COMMON_DIGG;
         Map<String, String> params = new HashMap<>();
-        params.put("news_id", news_id);
+        params.put("item_id", news_id);
+        params.put("type", Config.DIGG_SHARE);
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -331,6 +333,8 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                     item1ViewHolder.dianzan.setBackgroundResource(R.mipmap.like);
                                 }
                                 getCommentsDetails(1);
+                            }else {
+                                ToastUtil.show(context,info,500);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -351,6 +355,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         String url = Config.URL + Config.GETINFORMATIONDETAILS;
         Map<String, String> params = new HashMap<>();
         params.put("news_id", NEWID);
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -481,7 +486,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("news_id", NEWID);
         params.put("content", content);
         mMyOkhttp.post()

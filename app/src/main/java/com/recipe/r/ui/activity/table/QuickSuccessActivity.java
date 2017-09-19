@@ -81,7 +81,7 @@ public class QuickSuccessActivity extends BaseActivity implements View.OnClickLi
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         if (!TextUtils.isEmpty(ORDERID)) {
             params.put("order_id", ORDERID);
         } else {

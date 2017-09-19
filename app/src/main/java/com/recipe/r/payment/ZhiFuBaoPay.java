@@ -141,7 +141,7 @@ public class ZhiFuBaoPay {
         Map<String, String> params = new HashMap<>();
         params.put("order_sn", order_sn);
         params.put("payment_id", "2");
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("pay_type", "prepay");
         mMyOkhttp.post()
                 .url(url)

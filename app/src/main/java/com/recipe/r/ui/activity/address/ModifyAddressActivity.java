@@ -247,7 +247,7 @@ public class ModifyAddressActivity extends BaseActivity {
         }
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("provice", provice);
         params.put("city", city);
         params.put("district", district);

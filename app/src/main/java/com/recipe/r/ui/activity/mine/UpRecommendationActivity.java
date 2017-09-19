@@ -491,7 +491,7 @@ public class UpRecommendationActivity extends BaseActivity implements View.OnCli
         Gson g = new Gson();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         //拼接上传数组
         goods_info.put("goods_name", recommendation_name.getText().toString());
         goods_info.put("goods_summary", et_release_recommended.getText().toString());

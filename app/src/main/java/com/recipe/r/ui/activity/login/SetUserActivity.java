@@ -97,7 +97,7 @@ public class SetUserActivity extends BaseActivity implements View.OnClickListene
         params.put("mobile", PHONE);
         params.put("pwd", passworld);
         params.put("code", CODE);
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

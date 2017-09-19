@@ -69,7 +69,7 @@ public class NickNameActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("user_name", et_nickname.getText().toString());
         mMyOkhttp.post()
                 .url(url)
