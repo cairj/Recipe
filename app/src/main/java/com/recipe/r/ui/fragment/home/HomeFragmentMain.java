@@ -902,10 +902,25 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
                             dialog.setTitle(response.getData().getGoods_name());
                             dialog.setContent(response.getData().getGoods_brief());
                             dialog.setBannerViews(Config.IMAGE_URL + response.getData().getGoods_image());
-                            dialog.show();
                             /**
-                             * 设置收藏，暂时不用
+                             * 设置收藏
                              */
+                            if (response.getData().getColleted() == null) {
+                                dialog.getCollectionText().setText("收藏");
+                                dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
+
+                            } else {
+                                if (response.getData().getColleted().equals("0")) {
+                                    //取消收藏
+                                    dialog.getCollectionText().setText("取消收藏");
+                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
+                                } else if (response.getData().getColleted().equals("1")) {
+                                    //添加收藏
+                                    dialog.getCollectionText().setText("收藏");
+                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
+                                }
+                            }
+                            dialog.show();
                             /*if(response.getData().getStatus().equals("0")){
                                 //未收藏
                                 dialog.setLikeViews(R.mipmap.love);

@@ -406,4 +406,13 @@ public class MenuGoods {
             this.colleted = colleted;
         }
     }
+
+    @Override
+    public String toString() {
+        return "MenuGoods{" +
+                "data=" + data +
+                ", status=" + status +
+                ", info='" + info + '\'' +
+                '}';
+    }
 }

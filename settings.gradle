@@ -1,1 +1,1 @@
-include ':app', ':photopicker', ':kefu-easeui', ':zxing-lib', ':zxinglib'
+include ':app', ':photopicker', ':kefu-easeui',':zxinglib'
