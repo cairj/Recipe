@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,8 +93,8 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final PaymentItem.OrderInfo PaymentItem = mDatas.get(position);
         holder.itemView.setTag(mDatas.get(position));
         if (PaymentItem.getShop_info() != null) {
-            if (PaymentItem.getShop_info().size() > 0) {
-                ((PaymentAdapter.Item2ViewHolder) holder).name_payment.setText(PaymentItem.getShop_info().get(0).getShop_name());
+            if (PaymentItem.getShop_info()/*.size() > 0*/!=null) {
+                ((PaymentAdapter.Item2ViewHolder) holder).name_payment.setText(PaymentItem.getShop_info()/*.get(0)*/.getShop_name());
             } else {
                 ((PaymentAdapter.Item2ViewHolder) holder).name_payment.setText(PaymentItem.getConsignee());
             }
@@ -399,6 +400,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 .enqueue(new JsonResponseHandler() {
                              @Override
                              public void onSuccess(int statusCode, JSONObject response) {
+                                 Log.e("onSuccess",response.toString());
                                  try {
                                      int status = response.getInt("status");
                                      String info = response.getString("info");

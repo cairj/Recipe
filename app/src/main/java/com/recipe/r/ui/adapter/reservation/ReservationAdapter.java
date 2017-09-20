@@ -325,8 +325,9 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                                  try {
                                      int status = response.getInt("status");
                                      String info = response.getString("info");
-                                     JSONObject data = response.getJSONObject("data");
+
                                      if (status == 1) {
+                                         JSONObject data = response.getJSONObject("data");
                                          initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble("total_amount"));
                                      } else {
                                          //TODO 订单无效

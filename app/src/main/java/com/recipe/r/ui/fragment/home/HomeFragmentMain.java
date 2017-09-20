@@ -1051,7 +1051,7 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
         String url = Config.URL + Config.COLLECT;
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
-        params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
+        //params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
         params.put("device", "android");
         params.put("goods_id", goodId);
         params.put("type", type);//0，取消收藏，1，收藏，默认为1

@@ -73,7 +73,52 @@ public class PaymentItem {
         private int status;//订单状态,-2,订单无效,-1,订单取消,0,待付款,1,已付款,2,已发货,3,已完成,4,申请退款,5,拒绝退款,6,退款成功
         private String table_image;
         private ArrayList<GoodsInfo> goods_info;
-        private ArrayList<Shop_info> shop_info;
+        private Shop_info shop_info;
+
+        @Override
+        public String toString() {
+            return "OrderInfo{" +
+                    "order_id='" + order_id + '\'' +
+                    ", order_sn='" + order_sn + '\'' +
+                    ", table_id='" + table_id + '\'' +
+                    ", user_id='" + user_id + '\'' +
+                    ", consignee='" + consignee + '\'' +
+                    ", province='" + province + '\'' +
+                    ", city='" + city + '\'' +
+                    ", district='" + district + '\'' +
+                    ", address='" + address + '\'' +
+                    ", code='" + code + '\'' +
+                    ", mobile='" + mobile + '\'' +
+                    ", telephone='" + telephone + '\'' +
+                    ", remark='" + remark + '\'' +
+                    ", ship_id='" + ship_id + '\'' +
+                    ", ship_sn='" + ship_sn + '\'' +
+                    ", ship_way='" + ship_way + '\'' +
+                    ", ship_cost='" + ship_cost + '\'' +
+                    ", discount='" + discount + '\'' +
+                    ", origin_total='" + origin_total + '\'' +
+                    ", discount_total='" + discount_total + '\'' +
+                    ", final_total='" + final_total + '\'' +
+                    ", paid_total='" + paid_total + '\'' +
+                    ", remain_total='" + remain_total + '\'' +
+                    ", payment_id='" + payment_id + '\'' +
+                    ", payment_cost='" + payment_cost + '\'' +
+                    ", book_time='" + book_time + '\'' +
+                    ", order_time='" + order_time + '\'' +
+                    ", confirm_time='" + confirm_time + '\'' +
+                    ", payment_time='" + payment_time + '\'' +
+                    ", ship_time='" + ship_time + '\'' +
+                    ", refund_time='" + refund_time + '\'' +
+                    ", admin_id='" + admin_id + '\'' +
+                    ", order_ip='" + order_ip + '\'' +
+                    ", order_type='" + order_type + '\'' +
+                    ", people_num='" + people_num + '\'' +
+                    ", status=" + status +
+                    ", table_image='" + table_image + '\'' +
+                    ", goods_info=" + goods_info +
+                    ", shop_info=" + shop_info +
+                    '}';
+        }
 
         public String getOrder_id() {
             return order_id;
@@ -379,11 +424,11 @@ public class PaymentItem {
             this.goods_info = goods_info;
         }
 
-        public ArrayList<Shop_info> getShop_info() {
+        public Shop_info getShop_info() {
             return shop_info;
         }
 
-        public void setShop_info(ArrayList<Shop_info> shop_info) {
+        public void setShop_info(Shop_info shop_info) {
             this.shop_info = shop_info;
         }
 
@@ -398,6 +443,22 @@ public class PaymentItem {
             private String goods_image;
             private String goods_brief;
             private String goods_summary;
+
+            @Override
+            public String toString() {
+                return "GoodsInfo{" +
+                        "id='" + id + '\'' +
+                        ", goods_name='" + goods_name + '\'' +
+                        ", goods_price='" + goods_price + '\'' +
+                        ", order_id='" + order_id + '\'' +
+                        ", goods_number='" + goods_number + '\'' +
+                        ", deal_price='" + deal_price + '\'' +
+                        ", goods_id='" + goods_id + '\'' +
+                        ", goods_image='" + goods_image + '\'' +
+                        ", goods_brief='" + goods_brief + '\'' +
+                        ", goods_summary='" + goods_summary + '\'' +
+                        '}';
+            }
 
             public String getId() {
                 return id;
@@ -485,6 +546,15 @@ public class PaymentItem {
             private String shop_address;
             private String table_name;
 
+            @Override
+            public String toString() {
+                return "Shop_info{" +
+                        "shop_name='" + shop_name + '\'' +
+                        ", shop_address='" + shop_address + '\'' +
+                        ", table_name='" + table_name + '\'' +
+                        '}';
+            }
+
             public String getShop_name() {
                 return shop_name;
             }
@@ -509,5 +579,14 @@ public class PaymentItem {
                 this.table_name = table_name;
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "PaymentItem{" +
+                "status=" + status +
+                ", info='" + info + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

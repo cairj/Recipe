@@ -189,12 +189,12 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
                 PAGE = 1;
                 nopay_reservation.setTextColor(getResources().getColor(R.color.main_red));
                 history_reservation.setTextColor(getResources().getColor(R.color.text_color));
-                getReservation(PAGE, limit, "99");
+                getReservation(PAGE, limit, "0");
             } else if (viewPager.getCurrentItem() == 1) {
                 PAGE = 1;
                 nopay_reservation.setTextColor(getResources().getColor(R.color.text_color));
                 history_reservation.setTextColor(getResources().getColor(R.color.main_red));
-                getReservation(PAGE, limit, "3");
+                getReservation(PAGE, limit, "99");
             }
         }
 
@@ -208,7 +208,7 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void initData() {
-        getReservation(PAGE, limit, "99");
+        getReservation(PAGE, limit, "0");
     }
 
     private void initListener() {
@@ -262,14 +262,14 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
                 viewPager.setCurrentItem(0);
                 nopay_reservation.setTextColor(getResources().getColor(R.color.main_red));
                 history_reservation.setTextColor(getResources().getColor(R.color.text_color));
-                getReservation(PAGE, limit, "99");
+                getReservation(PAGE, limit, "0");
                 break;
             case R.id.history_reservation:
                 PAGE = 1;
                 viewPager.setCurrentItem(1);
                 nopay_reservation.setTextColor(getResources().getColor(R.color.text_color));
                 history_reservation.setTextColor(getResources().getColor(R.color.main_red));
-                getReservation(PAGE, limit, "3");
+                getReservation(PAGE, limit, "99");
                 break;
         }
     }
@@ -334,10 +334,10 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
         isRefresh = true;
         PAGE = 1;
         if (viewPager.getCurrentItem() == 0) {
-            getReservation(PAGE, limit, "99");
+            getReservation(PAGE, limit, "0");
             swipeToLoadLayout_nopay.setRefreshing(false);
         } else if (viewPager.getCurrentItem() == 1) {
-            getReservation(PAGE, limit, "3");
+            getReservation(PAGE, limit, "99");
             swipeToLoadLayout_history.setRefreshing(false);
         }
     }
@@ -347,10 +347,10 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
         isRefresh = false;
         PAGE++;
         if (viewPager.getCurrentItem() == 0) {
-            getReservation(PAGE, limit, "99");
+            getReservation(PAGE, limit, "0");
             swipeToLoadLayout_nopay.setLoadingMore(false);
         } else if (viewPager.getCurrentItem() == 1) {
-            getReservation(PAGE, limit, "3");
+            getReservation(PAGE, limit, "99");
             swipeToLoadLayout_history.setLoadingMore(false);
         }
     }
@@ -359,6 +359,6 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
     public void onShowMessageEvent(MessageEvent messageEvent) {
         //TODO 付款成功  刷新当前界面
         PAGE = 1;
-        getReservation(PAGE, limit, "99");
+        getReservation(PAGE, limit, "0");
     }
 }
