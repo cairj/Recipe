@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,6 +90,12 @@ public class MineFragmentMain extends BaseFragment implements View.OnClickListen
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
+
+    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (hidden) {
@@ -137,6 +144,7 @@ public class MineFragmentMain extends BaseFragment implements View.OnClickListen
                     public void onSuccess(int statusCode, JSONObject response) {
                         hideProgress();
                         try {
+                            Log.e("onSuccess",response.toString());
                             int status = response.getInt("status");
                             if (status == 1) {
                                 if (response.getJSONObject("data") != null) {

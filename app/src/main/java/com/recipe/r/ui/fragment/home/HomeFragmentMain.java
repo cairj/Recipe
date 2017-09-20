@@ -908,16 +908,15 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
                             if (response.getData().getColleted() == null) {
                                 dialog.getCollectionText().setText("收藏");
                                 dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
-
                             } else {
-                                if (response.getData().getColleted().equals("0")) {
-                                    //取消收藏
-                                    dialog.getCollectionText().setText("取消收藏");
-                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
-                                } else if (response.getData().getColleted().equals("1")) {
+                                if (response.getData().getColleted().equals("0")) {//未收藏
                                     //添加收藏
                                     dialog.getCollectionText().setText("收藏");
                                     dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
+                                } else if (response.getData().getColleted().equals("1")) {//已收藏
+                                    //取消收藏
+                                    dialog.getCollectionText().setText("取消收藏");
+                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
                                 }
                             }
                             dialog.show();
@@ -960,20 +959,20 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
                                             if (response.getData().getColleted() == null) {
                                                 //添加收藏
                                                 setCollect(GOODID, "1");
-                                                dialog.getCollectionText().setText("收藏");
-                                                dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
+                                                dialog.getCollectionText().setText("取消收藏");
+                                                dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
 
                                             } else {
                                                 if (response.getData().getColleted().equals("0")) {
                                                     //添加收藏
                                                     setCollect(GOODID, "1");
-                                                    dialog.getCollectionText().setText("收藏");
-                                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
+                                                    dialog.getCollectionText().setText("取消收藏");
+                                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
                                                 } else if (response.getData().getColleted().equals("1")) {
                                                     //取消收藏
                                                     setCollect(GOODID, "0");
-                                                    dialog.getCollectionText().setText("取消收藏");
-                                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
+                                                    dialog.getCollectionText().setText("收藏");
+                                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
                                                 }
                                             }
                                             break;

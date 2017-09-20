@@ -309,6 +309,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         Map<String, String> params = new HashMap<>();
         params.put("item_id", news_id);
         params.put("type", Config.DIGG_SHARE);
+        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)

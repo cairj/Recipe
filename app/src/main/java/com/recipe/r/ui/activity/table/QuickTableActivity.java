@@ -522,9 +522,9 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
     private void getBookTimes(String table_id, String book_date) {
         String url = Config.URL + Config.GETBOOKTIMES;
         Map<String, String> params = new HashMap<>();
-//        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
+        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
 //        params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-//        params.put("device", "android");
+        params.put("device", "android");
         params.put("table_id", table_id);
         params.put("book_date", book_date);
         mMyOkhttp.post()

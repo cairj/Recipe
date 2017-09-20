@@ -249,7 +249,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 //                            }
 //                        });
 //                myAlertDialog.show();
-                DatePickter.showDataPop((Activity) context, 1890, Integer.parseInt(time), 14, 14, "2013-11-11").setDateResultListener(new DatePickter.OnDateResultListener() {
+                String datetime=birthday_set.getText().toString();
+                DatePickter.showDataPop((Activity) context, 1890, Integer.parseInt(time), 14, 14, datetime).setDateResultListener(new DatePickter.OnDateResultListener() {
                     @Override
                     public void getDateResult(int year, int month, int day, String dateDesc) {
                         if (dateDesc.equals(AppSettings.getPrefString(SettingActivity.this, ConfigApp.BIRTHDAY, ""))) {
@@ -753,20 +754,17 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == ConfigApp.MY_PERMISSIONS_REQUEST_CALL_PHONE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                showPhotoDialog();
-            } else {
-                // Permission Denied
-                Toast.makeText(context, "权限被禁止", Toast.LENGTH_SHORT).show();
+        if (requestCode == CAMERAPRESS) {
+            boolean allAllowed=true;
+            for (int i=0;i<permissions.length;i++){
+                if (grantResults[i]!=PackageManager.PERMISSION_GRANTED){
+                    allAllowed=false;
+                    String msg=(permissions[i].equals(Manifest.permission.CAMERA)?"相机":"存储")+"权限被禁止";
+                    ToastUtil.show(this,msg,500);
+                }
             }
-        }
-        if (requestCode == ConfigApp.MY_PERMISSIONS_REQUEST_CALL_PHONE2) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (allAllowed){
                 showPhotoDialog();
-            } else {
-                // Permission Denied
-                Toast.makeText(context, "权限被禁止", Toast.LENGTH_SHORT).show();
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
