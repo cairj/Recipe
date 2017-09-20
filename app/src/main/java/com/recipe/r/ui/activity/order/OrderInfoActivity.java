@@ -103,7 +103,7 @@ public class OrderInfoActivity extends BaseActivity {
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("order_id", ORDERID);
         mMyOkhttp.post()
                 .url(url)

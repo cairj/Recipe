@@ -339,7 +339,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
     /**
      * 获取版本更新号码
-     * 1，andriod，2，iOS
+     * 1，android，2，iOS
      */
     private void getVersion() {
         if (NetworkUtils.isAvailable(this)) {
@@ -348,7 +348,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             Map<String, String> params = new HashMap<>();
             params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
             params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-            params.put("device", "andriod");
+            params.put("device", "android");
             params.put("type", "1");
             mMyOkhttp.post()
                     .params(params)
@@ -555,7 +555,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             Map<String, String> params = new HashMap<>();
             params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
             params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-            params.put("device", "andriod");
+            params.put("device", "android");
             mMyOkhttp.upload()
                     .addHeader("enctype", "multipart/from-data")
                     .url(url)
@@ -604,7 +604,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         if (type == 0) {
             //TODO 修改性别
             if (woman_gender.isChecked()) {
@@ -668,7 +668,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

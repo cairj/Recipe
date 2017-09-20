@@ -282,7 +282,7 @@ public class IntegralMineActivity extends BaseActivity implements View.OnClickLi
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("type", type);//1，获取，2，兑换
         params.put("page", "" + page);
         params.put("limit", "" + limit);

@@ -221,6 +221,7 @@ public class CommentsCollegeActivity extends BaseActivity implements View.OnClic
         String url = Config.URL + Config.GETINFORMATIONDETAILS;
         Map<String, String> params = new HashMap<>();
         params.put("news_id", NEWID);
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -270,6 +271,7 @@ public class CommentsCollegeActivity extends BaseActivity implements View.OnClic
         params.put("news_id", NEWID);
         params.put("page", "" + page);
         params.put("limit", "" + limit);
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -308,7 +310,7 @@ public class CommentsCollegeActivity extends BaseActivity implements View.OnClic
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("news_id", NEWID);
         params.put("content", content);
         mMyOkhttp.post()
@@ -353,7 +355,7 @@ public class CommentsCollegeActivity extends BaseActivity implements View.OnClic
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("comment_id", comment_id);
         params.put("content", content);
         mMyOkhttp.post()

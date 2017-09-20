@@ -74,7 +74,7 @@ public class MenuGoods {
         private String collect_num;
         private String add_time;
         private String sold_month;
-        private String colleted;//是否收藏
+        private String collected;//是否收藏
 
         @Override
         public String toString() {
@@ -114,7 +114,7 @@ public class MenuGoods {
                     ", collect_num='" + collect_num + '\'' +
                     ", add_time='" + add_time + '\'' +
                     ", sold_month='" + sold_month + '\'' +
-                    ", colleted='" + colleted + '\'' +
+                    ", colleted='" + collected + '\'' +
                     '}';
         }
 
@@ -399,11 +399,11 @@ public class MenuGoods {
         }
 
         public String getColleted() {
-            return colleted;
+            return collected;
         }
 
         public void setColleted(String colleted) {
-            this.colleted = colleted;
+            this.collected = colleted;
         }
     }
 

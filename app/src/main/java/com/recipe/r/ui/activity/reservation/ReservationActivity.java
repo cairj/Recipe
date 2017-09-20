@@ -288,7 +288,7 @@ public class ReservationActivity extends BaseActivity implements View.OnClickLis
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("order_type", "1");
         params.put("status", type);
         params.put("page", "" + page);

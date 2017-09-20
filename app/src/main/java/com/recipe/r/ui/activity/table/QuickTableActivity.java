@@ -276,7 +276,7 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("table_id", TABLNUMBER);
         params.put("book_date", DateUtil.getStringToTime3(time_eat.getText().toString()));
         params.put("book_step", (hour_dining.getText().toString().split(":")[0]).replace("0", ""));
@@ -388,7 +388,7 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
         params.put("order_id", ORDER_ID);
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -471,7 +471,7 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("option", "hot");
         params.put("page", "1");
         params.put("limit", "");
@@ -524,7 +524,7 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
         Map<String, String> params = new HashMap<>();
 //        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
 //        params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-//        params.put("device", "andriod");
+//        params.put("device", "android");
         params.put("table_id", table_id);
         params.put("book_date", book_date);
         mMyOkhttp.post()

@@ -126,7 +126,7 @@ public class MineFragmentMain extends BaseFragment implements View.OnClickListen
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -388,7 +388,7 @@ public class MineFragmentMain extends BaseFragment implements View.OnClickListen
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

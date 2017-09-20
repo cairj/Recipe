@@ -129,7 +129,7 @@ public class EditRecommendActiv extends BaseActivity implements View.OnClickList
         Gson g = new Gson();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         //拼接上传数组
         params.put("goods_name", goods_name);
         params.put("goods_summary", goods_summary);

@@ -137,7 +137,7 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         if (!TextUtils.isEmpty(Address_Id)) {
             //TODO 外卖回调地址
             params.put("address_id", Address_Id);
@@ -331,7 +331,7 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("order_type", "" + ORDER_TYPE);
         params.put("address_id", Address_Id);
         mMyOkhttp.post()
@@ -393,7 +393,7 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
 //                .create();
 //        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
 //        params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-//        params.put("device", "andriod");
+//        params.put("device", "android");
 //        for (int i = 0; i < shopcarList.size(); i++) {
 //            Map<String, String> menu_map = new HashMap<>();
 //            menu_map.put("goods_id", shopcarList.get(i).getGoods_id());

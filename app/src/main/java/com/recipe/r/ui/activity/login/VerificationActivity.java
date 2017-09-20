@@ -111,7 +111,7 @@ public class VerificationActivity extends BaseActivity implements View.OnClickLi
         params.put("account", phone);
         params.put("pwd", code);
         params.put("type", "code");
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

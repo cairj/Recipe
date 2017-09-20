@@ -228,7 +228,7 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("order_id", "" + order_id);
         params.put("status", status);//-1，取消，-3，删除
         mMyOkhttp.post()
@@ -312,7 +312,7 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device", "andriod");
+        params.put("device", "android");
         params.put("order_sn", order_sn);
         mMyOkhttp.post()
                 .url(url)

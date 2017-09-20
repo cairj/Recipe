@@ -118,7 +118,7 @@ public class ExchangeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
-        params.put("device","andriod");
+        params.put("device","android");
         params.put("goods_id", good_id);
         mMyOkhttp.post()
                 .url(url)

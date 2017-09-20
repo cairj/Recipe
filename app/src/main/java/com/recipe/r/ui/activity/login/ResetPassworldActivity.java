@@ -98,7 +98,7 @@ public class ResetPassworldActivity extends BaseActivity implements View.OnClick
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
         params.put("pwd", pwd);
-        params.put("device", "andriod");
+        params.put("device", "android");
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
