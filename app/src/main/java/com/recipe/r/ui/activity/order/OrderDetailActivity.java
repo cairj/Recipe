@@ -1,5 +1,7 @@
 package com.recipe.r.ui.activity.order;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,11 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.recipe.r.R;
@@ -37,7 +41,10 @@ import com.tsy.sdk.myokhttp.response.JsonResponseHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,7 +67,6 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
     private TextView remark_order;
     private TextView num_Settlement_tv;
     private TextView totalMoney_Settlement_tv;
-    private TextView order_time;
     private RecyclerView sure_order_Rv;
     private OrderDetailsAdapter adapter;
     private TextView Settlement_tv;
@@ -77,6 +83,21 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
     private String Address_Id = "";
     private TextView pay_price_total;
     private TextView pay_price_actually;
+    private LinearLayout shop_eat_ordered_ll;
+    private LinearLayout ll_order_time;
+    private RelativeLayout ll_delivery_time;
+    private TextView order_time;
+    private TextView title_time;
+    private TextView tv_table_number;
+    private TextView tv_member_number;
+
+    private final int TABLE_Code = 1004;
+    private final int TABLE_RESULT_CODE = 1005;
+
+    private boolean bookInfoComplete=false;
+    //配送时间
+    private Calendar calendar=Calendar.getInstance();
+    private String deliverTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,12 +129,20 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
         pay_price_total= (TextView) findViewById(R.id.pay_price_total);
         sure_order_Rv.setLayoutManager(new LinearLayoutManager(context));
         Settlement_tv = (TextView) findViewById(R.id.Settlement_tv);
+        order_time = (TextView) findViewById(R.id.order_time);
+        title_time = (TextView) findViewById(R.id.title_time);
+        tv_table_number = (TextView) findViewById(R.id.tv_table_number);
+        tv_member_number = (TextView) findViewById(R.id.tv_member_number);
+        ll_order_time = (LinearLayout) findViewById(R.id.ll_order_time);
+        ll_delivery_time = (RelativeLayout) findViewById(R.id.ll_delivery_time);
+        shop_eat_ordered_ll = (LinearLayout) findViewById(R.id.shop_eat_ordered_ll);
     }
 
     private void initListener() {
         Settlement_tv.setOnClickListener(this);
         eat_way.setOnCheckedChangeListener(this);
         sure_order_silentTv.setOnClickListener(this);
+        ll_delivery_time.setOnClickListener(this);
         findViewById(R.id.booking_orderdetails).setOnClickListener(this);
     }
 
@@ -163,7 +192,22 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                                 shop_eat.setChecked(true);
                                 out_eat.setChecked(false);
                                 sure_order_addressLL.setVisibility(View.GONE);
-                                shop_eat_ll.setVisibility(View.VISIBLE);
+                                ll_order_time.setVisibility(View.VISIBLE);
+                                ll_delivery_time.setVisibility(View.GONE);
+                                if (response.getData().getBook_info()==null){//没有预定信息
+                                    shop_eat_ll.setVisibility(View.VISIBLE);
+                                    shop_eat_ordered_ll.setVisibility(View.GONE);
+                                    bookInfoComplete=false;
+                                }else {
+                                    bookInfoComplete=true;
+                                    shop_eat_ll.setVisibility(View.GONE);
+                                    shop_eat_ordered_ll.setVisibility(View.VISIBLE);
+                                    tv_member_number.setText(response.getData().getBook_info().getPeople_num()+"");
+                                    tv_table_number.setText(response.getData().getBook_info().getTable_name());
+                                    order_time.setText(response.getData().getBook_info().getBook_time());
+                                    remark_order.setText(response.getData().getBook_info().getRemark());
+                                }
+
                                 Settlement_tv.setEnabled(true);
                                 Settlement_tv.setBackgroundColor(getResources().getColor(R.color.main_red));
                             } else if (ORDER_TYPE == 2) {
@@ -172,6 +216,9 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                                 out_eat.setChecked(true);
                                 sure_order_addressLL.setVisibility(View.VISIBLE);
                                 shop_eat_ll.setVisibility(View.GONE);
+                                ll_order_time.setVisibility(View.GONE);
+                                ll_delivery_time.setVisibility(View.VISIBLE);
+
                                 Settlement_tv.setEnabled(true);
                                 Settlement_tv.setBackgroundColor(getResources().getColor(R.color.main_red));
                                 //TODO 外卖订单地址信息
@@ -219,8 +266,9 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sure_order_silentTv:
-                Intent intent_address = new Intent(OrderDetailActivity.this, AdressActivity.class);
-                startActivity(intent_address);
+                Intent intent = new Intent(OrderDetailActivity.this, AdressActivity.class);
+                intent.putExtra("type", "order");
+                startActivityForResult(intent, Address_Code);
                 break;
             case R.id.Settlement_tv:
                 //付款
@@ -253,9 +301,32 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.booking_orderdetails:
                 //预订订桌
-                Intent intent = new Intent(OrderDetailActivity.this, QuickTableActivity.class);
-                intent.putExtra("mark", "order");
-                startActivity(intent);
+                Intent intents = new Intent(OrderDetailActivity.this, QuickTableActivity.class);
+                intents.putExtra("mark", "order");
+                startActivityForResult(intents,TABLE_Code);
+                break;
+            case R.id.ll_delivery_time:
+                if (ORDER_TYPE==2){
+                    DatePickerDialog dialog=new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            calendar.set(year,month,dayOfMonth);
+                            TimePickerDialog timeDialog=new TimePickerDialog(OrderDetailActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                                @Override
+                                public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                    calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                                    calendar.set(Calendar.MINUTE,minute);
+                                    Date date=calendar.getTime();
+                                    SimpleDateFormat sp=new SimpleDateFormat("yyyy-MM-dd hh:mm");
+                                    deliverTime=sp.format(date);
+                                    delivery_time.setText(deliverTime);
+                                }
+                            }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+                            timeDialog.show();
+                        }
+                    }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                    dialog.show();
+                }
                 break;
         }
     }
@@ -522,19 +593,29 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
         switch (checkedId) {
             case R.id.shop_eat:
                 sure_order_addressLL.setVisibility(View.GONE);
-                if (ORDER_TYPE == 1) {
+
+                ll_order_time.setVisibility(View.VISIBLE);
+                ll_delivery_time.setVisibility(View.GONE);
+                if (bookInfoComplete) {
                     shop_eat_ll.setVisibility(View.GONE);
-                } else if (ORDER_TYPE == 2) {
+                    shop_eat_ordered_ll.setVisibility(View.VISIBLE);
+                    Settlement_tv.setClickable(true);
+                    Settlement_tv.setBackgroundColor(getResources().getColor(R.color.main_red));
+                } else {
                     shop_eat_ll.setVisibility(View.VISIBLE);
+                    shop_eat_ordered_ll.setVisibility(View.GONE);
                     Settlement_tv.setEnabled(false);
                     Settlement_tv.setBackgroundColor(getResources().getColor(R.color.gray_6c6c6c));
                 }
-                Settlement_tv.setClickable(false);
-                Settlement_tv.setBackgroundColor(getResources().getColor(R.color.gray_6c6c6c));
+                ORDER_TYPE = 1;
                 break;
             case R.id.out_eat:
+                ORDER_TYPE = 2;
                 sure_order_addressLL.setVisibility(View.VISIBLE);
                 shop_eat_ll.setVisibility(View.GONE);
+                shop_eat_ordered_ll.setVisibility(View.GONE);
+                ll_order_time.setVisibility(View.GONE);
+                ll_delivery_time.setVisibility(View.VISIBLE);
                 Settlement_tv.setClickable(true);
                 Settlement_tv.setBackgroundColor(getResources().getColor(R.color.main_red));
                 break;
@@ -551,6 +632,13 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                     Address_Id = data.getStringExtra("address_id");
                     initData();
                 }
+                break;
+            case TABLE_Code:
+                bookInfoComplete = true;
+                tv_member_number.setText(data.getStringExtra("people_num"));
+                tv_table_number.setText(data.getStringExtra("table_num"));
+                order_time.setText(data.getStringExtra("time"));
+                remark_order.setText(data.getStringExtra("remark"));
                 break;
             default:
                 break;

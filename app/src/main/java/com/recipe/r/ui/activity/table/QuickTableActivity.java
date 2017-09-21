@@ -92,6 +92,8 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
     private SpinerPopWindow spinerPopWindow_time;
     private RelativeLayout rl_hour_quick;
 
+    private String mark;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +115,9 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
         }
         if (!TextUtils.isEmpty(getIntent().getStringExtra("time"))) {
             TIME = getIntent().getStringExtra("time");
+        }
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("mark"))) {
+            mark = getIntent().getStringExtra("mark");
         }
         initHead(R.mipmap.reset_back, "返回", "快捷预订", 0, "");
         initView();
@@ -409,9 +414,18 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
                             ToastUtil.show(QuickTableActivity.this, info, 500);
                             if (status == 1) {
                                 JSONObject data = response.getJSONObject("data");
-                                Intent intent_success = new Intent(QuickTableActivity.this, QuickSuccessActivity.class);
-                                intent_success.putExtra("order_id", data.getString("order_id"));
-                                startActivity(intent_success);
+                                if ("order".equals(mark)){
+                                    Intent intent=new Intent();
+                                    intent.putExtra("people_num", tvGoodsSelectNum_quick.getText().toString());
+                                    intent.putExtra("table_num",TABLNUMBER);
+                                    intent.putExtra("time",time_eat.getText().toString());
+                                    intent.putExtra("remark",note_quick.getText().toString());
+                                    setResult(1005,intent);
+                                }else {
+                                    Intent intent_success = new Intent(QuickTableActivity.this, QuickSuccessActivity.class);
+                                    intent_success.putExtra("order_id", data.getString("order_id"));
+                                    startActivity(intent_success);
+                                }
                                 QuickTableActivity.this.finish();
                             }
                         } catch (JSONException e) {

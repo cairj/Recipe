@@ -14,6 +14,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/gwc_jiesuan"
         android:layout_below="@+id/head_title"
         android:layout_weight="1">
 
@@ -149,6 +150,82 @@
                     android:text="立即预订"
                     android:textColor="@color/white" />
             </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/shop_eat_ordered_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="桌号:"
+                        android:textColor="@color/text_color"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_table_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ellipsize="end"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/text_gray"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/backgraound_main" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="人数:"
+                        android:textColor="@color/text_color"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_member_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="@color/text_gray"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
             <!-- 到店吃-->
 
             <ImageView
@@ -162,9 +239,9 @@
                 android:background="@color/backgraound_main" />
             <!--选择服务 -->
             <RelativeLayout
-                android:background="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="40dp"
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -222,10 +299,11 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:background="@color/white"
+                android:id="@+id/ll_delivery_time"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:visibility="gone">
+                android:background="@color/white"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -255,13 +333,17 @@
                     android:layout_marginRight="10dp"
                     android:background="@color/backgraound_main" />
             </RelativeLayout>
+
             <LinearLayout
+                android:id="@+id/ll_order_time"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/white"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <TextView
+                    android:id="@+id/title_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -276,10 +358,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:gravity="right"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:ellipsize="end"
+                    android:gravity="right"
                     android:maxLines="1"
                     android:text=""
                     android:textColor="@color/text_gray"
@@ -411,7 +493,7 @@
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginTop="5dp"
-                        android:text="现金卷"
+                        android:text="现金券"
                         android:textColor="@color/text_gray"
                         android:textSize="16sp" />
 
