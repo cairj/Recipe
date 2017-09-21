@@ -48,7 +48,7 @@ import java.util.Map;
  */
 public class QuickTableActivity extends BaseActivity implements View.OnClickListener {
     private String TYPE = "";
-    private String TABLNUMBER = "";//桌号
+    private String TABLNUMBER = "1";//桌号
     private String Person_Number = "";//就餐人数
     private String TABLENAME = "";//就餐环境
     private String TIME = "";//就餐时间

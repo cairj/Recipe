@@ -31,4 +31,16 @@ public class PermissionUtils {
         }
         return true;
     }
+
+    public static boolean checkCameraPermission(Activity context, int requestCode) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            int cameraPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA);
+            if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.CAMERA}, requestCode);
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

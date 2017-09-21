@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -150,6 +151,7 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                     @Override
                     public void onSuccess(int statusCode, OrderConfirmModel response) {
                         hideProgress();
+                        Log.e("onSuccess",response.toString());
                         int status = response.getStatus();
                         String info = response.getInfo();
                         Logger.e("onSuccess",response.toString());
@@ -161,7 +163,7 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                                 shop_eat.setChecked(true);
                                 out_eat.setChecked(false);
                                 sure_order_addressLL.setVisibility(View.GONE);
-                                shop_eat_ll.setVisibility(View.GONE);
+                                shop_eat_ll.setVisibility(View.VISIBLE);
                                 Settlement_tv.setEnabled(true);
                                 Settlement_tv.setBackgroundColor(getResources().getColor(R.color.main_red));
                             } else if (ORDER_TYPE == 2) {

@@ -1,6 +1,8 @@
 package com.recipe.r.ui.activity.zxing;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.afun.zxinglib.ScanView.ZXingScannerViewNew;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.recipe.r.R;
+import com.recipe.r.utils.PermissionUtils;
+import com.recipe.r.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ public class QrScanActivity extends Activity implements ZXingScannerViewNew.Resu
     private TextView result;
     private LinearLayout ll_qrscan;
     private WebView web_qrscan;
+    private static int REQUEST_CAMERA=1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,11 @@ public class QrScanActivity extends Activity implements ZXingScannerViewNew.Resu
         scanView = new ZXingScannerViewNew(this);
         scanView.setContentView(R.layout.logistics_scan_qr);
         scanView.setQrSize(this);
+        if (PermissionUtils.checkCameraPermission(this,REQUEST_CAMERA)){
+            openCamera();
+        }else {
+            ToastUtil.show(this, "相机权限被禁用，无法扫描，请开启", 500);
+        }
         setContentView(scanView);
         setupFormats();
         initUI();
@@ -90,11 +100,29 @@ public class QrScanActivity extends Activity implements ZXingScannerViewNew.Resu
     @Override
     protected void onResume() {
         super.onResume();
+        openCamera();
+        web_qrscan.onResume();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == REQUEST_CAMERA) {
+            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                ToastUtil.show(this, "相机权限被禁用，无法扫描", 500);
+            } else {
+                openCamera();
+                setContentView(scanView);
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+    private void openCamera(){
         scanView.setResultHandler(this);
         scanView.startCamera(-1);
         scanView.setFlash(false);
         scanView.setAutoFocus(true);
-        web_qrscan.onResume();
     }
 
     @Override
