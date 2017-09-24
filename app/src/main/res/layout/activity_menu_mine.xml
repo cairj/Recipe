@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/scrollbar_menu" />
-
+    
     <RelativeLayout
         android:id="@+id/default_result_rl"
         android:layout_width="wrap_content"

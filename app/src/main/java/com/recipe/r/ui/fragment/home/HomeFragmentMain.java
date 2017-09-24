@@ -136,6 +136,7 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
     private TextView scan_tv_home;
     private TextView message_tv_home;
     private ImageView home_search_line;
+    private LinearLayout messageLL;
 
     public HomeFragmentMain(MainActivity mainActivity) {
         this.context = mainActivity;
@@ -174,6 +175,7 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
         message_tv_home = (TextView) view.findViewById(R.id.message_tv_home);
         scan_tv_home = (TextView) view.findViewById(R.id.scan_tv_home);
         message_iv = (ImageView) view.findViewById(R.id.message_iv);
+        messageLL = (LinearLayout) view.findViewById(R.id.message_ll);
         meal_home = (LinearLayout) view.findViewById(R.id.meal_home);
         home_search_line = (ImageView) view.findViewById(R.id.home_search_line);
         share_home = (LinearLayout) view.findViewById(R.id.share_home);
@@ -456,7 +458,8 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
 //        swipeToLoadLayout.setOnRefreshListener(this);
         //为swipeToLoadLayout设置上拉加载更多监听者
 //        swipeToLoadLayout.setOnLoadMoreListener(this);
-        message_iv.setOnClickListener(new View.OnClickListener() {
+
+        messageLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /**

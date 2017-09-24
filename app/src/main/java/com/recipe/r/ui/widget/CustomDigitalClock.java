@@ -79,8 +79,8 @@ public class CustomDigitalClock extends DigitalClock {
 				if (currentTime / 1000 == endTime / 1000 - 5 * 60) {
 					mClockListener.remainFiveMinutes();
 				}
-				long distanceTime = endTime - currentTime;
-				distanceTime /= 1000;
+				long distanceTime = endTime - currentTime/1000;
+				//distanceTime /= 1000;
 				if (distanceTime == 0) {
 					if (status == 0) {
 						setText("00:00");

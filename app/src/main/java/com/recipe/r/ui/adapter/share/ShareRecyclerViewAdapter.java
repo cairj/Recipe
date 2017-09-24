@@ -72,13 +72,18 @@ public class ShareRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 
     public void updatelist(ArrayList<ShareItem.Sharedata> list) {
         this.mDatas.clear();
+        if(list==null){
+            list=new ArrayList<>();
+        }
         this.mDatas = list;
         notifyDataSetChanged();
     }
 
     public void append(ArrayList<ShareItem.Sharedata> list) {
         this.mDatas.addAll(list);
-
+        if(list==null){
+            list=new ArrayList<>();
+        }
         notifyDataSetChanged();
     }
 
@@ -197,15 +202,17 @@ public class ShareRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
                 if (shareItem.getImages().size() > 0) {
                     imgs_list.clear();
                     for (int i = 0; i < shareItem.getImages().size(); i++) {
-                        ImageBean imagesbean = new ImageBean();
-                        imagesbean.setImageUrl(shareItem.getImages().get(i));
-                        imgs_list.add(imagesbean);
                         final int finalI = i;
                         ((ShareRecyclerViewAdapter.Item2ViewHolder) holder).photos.get(i).setOnClickListener(
                                 new View.OnClickListener() {
 
                                     @Override
                                     public void onClick(View arg0) {
+                                        for (int i = 0; i < shareItem.getImages().size(); i++) {
+                                            ImageBean imagesbean = new ImageBean();
+                                            imagesbean.setImageUrl(shareItem.getImages().get(i));
+                                            imgs_list.add(imagesbean);
+                                        }
                                         SeeImage(imgs_list,finalI);
                                     }
                                 });

@@ -34,7 +34,7 @@ import java.util.Map;
 /**
  * 购物车界面
  */
-public class ShopCarActivity extends BaseActivity implements OnRefreshListener, OnLoadMoreListener, ShopCarAdapter.OnShopCartGoodsChangeListener, View.OnClickListener {
+public class ShopCarActivity extends BaseActivity implements /*OnRefreshListener, OnLoadMoreListener,*/ ShopCarAdapter.OnShopCartGoodsChangeListener, View.OnClickListener {
     private RecyclerView mRecyclerView;
     private SwipeToLoadLayout swipeToLoadLayout;
     private int PAGE = 1;
@@ -59,7 +59,7 @@ public class ShopCarActivity extends BaseActivity implements OnRefreshListener, 
     }
 
     private void initView() {
-        this.swipeToLoadLayout = (SwipeToLoadLayout) findViewById(R.id.swipeToLoadLayout);
+        //this.swipeToLoadLayout = (SwipeToLoadLayout) findViewById(R.id.swipeToLoadLayout);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target);
         gwc_jiesuan = (LinearLayout) findViewById(R.id.gwc_jiesuan);
         shopping_totalMoney_Tv = (TextView) findViewById(R.id.shopping_totalMoney_Tv);
@@ -69,7 +69,7 @@ public class ShopCarActivity extends BaseActivity implements OnRefreshListener, 
         mRecyclerView.setAdapter(adapter);
         adapter.setShopCart(gwc_jiesuan, shopping_totalMoney_Tv);
         adapter.setOnShopCartGoodsChangeListener(this);
-        initRefresh(swipeToLoadLayout);
+        //initRefresh(swipeToLoadLayout);
     }
 
     private void initData() {
@@ -84,10 +84,10 @@ public class ShopCarActivity extends BaseActivity implements OnRefreshListener, 
                 ShopCarActivity.this.finish();
             }
         });
-        //为swipeToLoadLayout设置下拉刷新监听者
+        /*//为swipeToLoadLayout设置下拉刷新监听者
         swipeToLoadLayout.setOnRefreshListener(this);
         //为swipeToLoadLayout设置上拉加载更多监听者
-        swipeToLoadLayout.setOnLoadMoreListener(this);
+        swipeToLoadLayout.setOnLoadMoreListener(this);*/
         Settlement_tv.setOnClickListener(this);
     }
 
@@ -156,22 +156,22 @@ public class ShopCarActivity extends BaseActivity implements OnRefreshListener, 
         });
     }
 
-    @Override
+    /*@Override
     public void onRefresh() {
         isRefresh = true;
         PAGE = 1;
         getShop(PAGE, limit);
         //设置下拉刷新结束
         swipeToLoadLayout.setRefreshing(false);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onLoadMore() {
         isRefresh = false;
         PAGE++;
         getShop(PAGE, limit);
         swipeToLoadLayout.setLoadingMore(false);
-    }
+    }*/
 
     @Override
     public void onNumChange() {

@@ -128,7 +128,7 @@ public class ShopCarAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 //        }
         ShowImageUtils.showImageView(context, R.mipmap.default_photo, Config.IMAGE_URL + goods.getGoods_image(), WeakImageViewUtil.getImageView(((ShopCarAdapter.Item2ViewHolder) holder).food_iv_menu));
         //判断是否隐藏
-        isSelected(goodsNum[position], ((ShopCarAdapter.Item2ViewHolder) holder));
+        isSelected(goods.getGoods_number(), ((ShopCarAdapter.Item2ViewHolder) holder));
         //删除商品
         ((Item2ViewHolder) holder).delete_shop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +140,7 @@ public class ShopCarAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ((ShopCarAdapter.Item2ViewHolder) holder).ivGoodsAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goodsNum[position]++;
+                goods.setGoods_number(goods.getGoods_number()+1);
                 // TODO: 2016/2/27 添加购物车
                 int[] start_location = new int[2];// 一个整型数组，用来存储按钮的在屏幕的X、Y坐标
                 v.getLocationInWindow(start_location);// 这是获取购买按钮的在屏幕的X、Y坐标（这也是动画开始的坐标）
@@ -150,16 +150,16 @@ public class ShopCarAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 TOTAL = TOTAL + Double.parseDouble(goods.getShop_price());
                 setAnim(buyImg, start_location);// 开始执行动画
                 mOnGoodsNunChangeListener.onNumChange();
-                isSelected(goodsNum[position], ((ShopCarAdapter.Item2ViewHolder) holder));
+                isSelected(goods.getGoods_number(), ((ShopCarAdapter.Item2ViewHolder) holder));
             }
         });
         ((ShopCarAdapter.Item2ViewHolder) holder).ivGoodsMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (goodsNum[position] > 0) {
-                    goodsNum[position]--;
+                if (goods.getGoods_number() > 0) {
+                    goods.setGoods_number(goods.getGoods_number()-1);
                     // TODO: 2016/2/27 删除购物车内容
-                    isSelected(goodsNum[position], ((ShopCarAdapter.Item2ViewHolder) holder));
+                    isSelected(goods.getGoods_number(), ((ShopCarAdapter.Item2ViewHolder) holder));
                     buyNum--;
                     TOTAL = TOTAL - Double.parseDouble(goods.getShop_price());
                     changeShopCart();
@@ -228,6 +228,10 @@ public class ShopCarAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @param position
      */
     public void removeItem(int position) {
+        NewGoods.Goods goods=mDatas.get(position);
+        TOTAL = TOTAL - Double.parseDouble(goods.getShop_price())*goods.getGoods_number();
+        changeShopCart();
+
         mDatas.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, mDatas.size());

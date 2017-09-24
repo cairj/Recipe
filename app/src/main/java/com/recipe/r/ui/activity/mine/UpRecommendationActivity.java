@@ -390,9 +390,14 @@ public class UpRecommendationActivity extends BaseActivity implements View.OnCli
                     fileMap.put("image" + i, f);
                 }
             }
+            Map<String, String> params = new HashMap<>();
+            params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
+            params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
+            params.put("device", "android");
             mMyOkhttp.upload()
-                    .addHeader("enctype", "multipart/from-data")
+                    .addHeader("enctype", "multipart/form-data")
                     .url(url)
+                    .params(params)
                     .files(fileMap)
                     .tag(this)
                     .enqueue(new JsonResponseHandler() {
@@ -427,6 +432,8 @@ public class UpRecommendationActivity extends BaseActivity implements View.OnCli
 //                                    intent.putExtra("make_time",  tv_value_when.getText().toString());
 //                                    startActivity(intent);
 //                                    UpRecommendationActivity.this.finish();
+                                }else {
+                                    ToastUtil.show(context,info,500);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

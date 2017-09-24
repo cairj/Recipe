@@ -126,6 +126,12 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
     }
 
     private void initView() {
+        getReturnView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuickTableActivity.this.finish();
+            }
+        });
         name_shop = (TextView) findViewById(R.id.name_shop);
         time_eat = (TextView) findViewById(R.id.time_dining);
         hour_dining = (TextView) findViewById(R.id.hour_dining);
