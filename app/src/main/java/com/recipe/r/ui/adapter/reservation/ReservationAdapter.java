@@ -328,7 +328,14 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
                                      if (status == 1) {
                                          JSONObject data = response.getJSONObject("data");
-                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble("total_amount"));
+                                         if (data.getInt("status")==0
+                                                 &&data.getJSONObject("goods").has("count")
+                                                 && data.getJSONObject("goods").getDouble("count")==0){
+                                             initDialog(data.getString("order_sn"), Double.valueOf(100));
+                                         }else {
+                                             String key = data.getJSONObject("goods").getInt("order_type") == 1 ? "remain_total" : "final_total";
+                                             initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble(key));
+                                         }
                                      } else {
                                          //TODO 订单无效
                                          ToastUtil.show(context, info, 100);

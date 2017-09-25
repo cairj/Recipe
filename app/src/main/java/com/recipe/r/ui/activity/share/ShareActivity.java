@@ -68,13 +68,19 @@ public class ShareActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
-        initHead(R.mipmap.reset_back, "", "我的分享", R.mipmap.camear, "");
+        initHead(R.mipmap.reset_back, "返回", "我的分享", R.mipmap.camear, "");
         initView();
         initData();
         initListener();
     }
 
     private void initView() {
+        getReturnView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShareActivity.this.finish();
+            }
+        });
         this.swipeToLoadLayout_ll = (LinearLayout) findViewById(R.id.swipeToLoadLayout_ll);
         this.swipeToLoadLayout = (SwipeToLoadLayout) findViewById(R.id.swipeToLoadLayout);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target);
@@ -169,12 +175,6 @@ public class ShareActivity extends BaseActivity
     }
 
     private void initListener() {
-        getLeftView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
         getRightView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

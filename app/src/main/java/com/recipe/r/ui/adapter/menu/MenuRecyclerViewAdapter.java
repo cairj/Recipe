@@ -85,12 +85,18 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     public void updatelist(ArrayList<NewGoods.Goods> list) {
         this.mDatas.clear();
+        if (list==null){
+            list=new ArrayList<>();
+        }
         this.mDatas = list;
         initGoodsNum();
         notifyDataSetChanged();
     }
 
     public void append(ArrayList<NewGoods.Goods> list) {
+        if (list==null){
+            list=new ArrayList<>();
+        }
         this.mDatas.addAll(list);
         initGoodsNum();
         notifyDataSetChanged();

@@ -21,6 +21,7 @@ import com.recipe.r.events.MessageEvent;
 import com.recipe.r.utils.AppSettings;
 import com.recipe.r.utils.Logger;
 import com.recipe.r.utils.OrderInfoUtil2_0;
+import com.recipe.r.utils.ToastUtil;
 import com.tsy.sdk.myokhttp.MyOkHttp;
 import com.tsy.sdk.myokhttp.response.JsonResponseHandler;
 
@@ -140,6 +141,7 @@ public class ZhiFuBaoPay {
     private void payOrder(String order_sn) {
         String url = Config.URL + Config.ORDERPREPAY;
         Map<String, String> params = new HashMap<>();
+        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("order_sn", order_sn);
         params.put("payment_id", "2");
         params.put("device", "android");
@@ -163,6 +165,8 @@ public class ZhiFuBaoPay {
                             JSONObject data = response.getJSONObject("data");
                             if (status == 1) {
                                 payZFB(data.getString("prepay_id"));
+                            }else {
+                                ToastUtil.show(context,response.getString("info"),500);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

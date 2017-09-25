@@ -297,7 +297,8 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                                      int status = response.getInt("status");
                                      JSONObject data = response.getJSONObject("data");
                                      if (status == 1) {
-                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble("total_amount"));
+                                         String key=data.getJSONObject("goods").getInt("order_type")==1?"remain_total":"final_total";
+                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble(key));
                                      }
                                  } catch (JSONException e) {
                                      e.printStackTrace();

@@ -52,6 +52,12 @@ public class PhotoGalleryActivity extends Activity {
         adapter.updateList(list);
         mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(position);
+        adapter.setItemOnClickListener(new PhotoViewAdapter.ItemOnClickListener() {
+            @Override
+            public void click() {
+                finish();
+            }
+        });
         // gallery = (GuideGallery) this.findViewById(R.id.gallery_photos);
         // gallery.setAdapter(adapter);
         // gallery.setOnItemClickListener(new OnItemClickListener() {

@@ -11,6 +11,7 @@ import com.recipe.r.base.Config;
 import com.recipe.r.base.ConfigApp;
 import com.recipe.r.entity.OrderGoods;
 import com.recipe.r.ui.activity.BaseActivity;
+import com.recipe.r.ui.activity.menu.MenuMineActivity;
 import com.recipe.r.ui.adapter.order.OrderInfoAdapter;
 import com.recipe.r.ui.widget.CustomDigitalClock;
 import com.recipe.r.ui.widget.ListViewForScrollView;
@@ -65,6 +66,12 @@ public class OrderInfoActivity extends BaseActivity {
     }
 
     private void initView() {
+        getReturnView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OrderInfoActivity.this.finish();
+            }
+        });
         shopcarList = new ArrayList<>();
         status_order= (TextView) findViewById(R.id.status_order);
         consignee_orderinfo = (TextView) findViewById(R.id.consignee_orderinfo);
@@ -167,6 +174,9 @@ public class OrderInfoActivity extends BaseActivity {
                                     people_num_orderinfo.setText(data.getString("people_num") + "人");
                                     time_orderinfo.setText(DateUtil.getDateToString2(Long.parseLong(data.getString("book_time"))));
                                     consignee_orderinfo.setText(data.getString("consignee"));
+                                    total_price_orderinfo.setText(data.getString("origin_total"));
+                                    String key=data.getJSONObject("goods").getInt("order_type")==1?"remain_total":"final_total";
+                                    pay_price_orderinfo.setText(data.getString(key));
                                 }
                                 JSONArray goods_info = data.getJSONArray("goods_info");
                                 shopcarList.clear();

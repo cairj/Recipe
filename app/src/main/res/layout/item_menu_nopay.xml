@@ -93,13 +93,14 @@
             android:layout_marginLeft="12dp"
             android:text="2017-06-13 12:00"
             android:textColor="@color/text_gray2"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:gravity="right|center_vertical"
+            android:layout_toRightOf="@id/time_menu"
             android:orientation="horizontal">
 
             <TextView
@@ -110,7 +111,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -121,7 +122,7 @@
                 android:layout_toLeftOf="@+id/price_menu"
                 android:text="合计:"
                 android:textColor="@color/text_color"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/price_menu"
@@ -130,8 +131,28 @@
                 android:layout_marginBottom="12dp"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/main_red"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
         </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/default_result_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="169dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/default_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/default_result" />
+
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <View

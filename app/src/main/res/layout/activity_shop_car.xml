@@ -14,11 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/titler_heoght" />
 
-    <include
+    <!--<include
         layout="@layout/refresh_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/head_title" />
+        android:layout_below="@+id/head_title" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/swipe_target"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="10dp"
+        android:layout_below="@+id/head_title">
+
+    </android.support.v7.widget.RecyclerView>
 
     <LinearLayout
         android:id="@+id/gwc_jiesuan"

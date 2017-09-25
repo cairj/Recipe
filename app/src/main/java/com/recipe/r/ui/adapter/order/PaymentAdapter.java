@@ -406,7 +406,8 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                      String info = response.getString("info");
                                      JSONObject data = response.getJSONObject("data");
                                      if (status == 1) {
-                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble("total_amount"));
+                                         String key=data.getJSONObject("goods").getInt("order_type")==1?"remain_total":"final_total";
+                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble(key));
                                      } else {
                                          ToastUtil.show(context, info, 100);
                                          Intent intent = new Intent(context, MainActivity.class);

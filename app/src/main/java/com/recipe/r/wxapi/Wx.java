@@ -6,8 +6,10 @@ import android.util.Log;
 import com.recipe.r.base.BaseApplication;
 import com.recipe.r.base.Config;
 import com.recipe.r.base.ConfigApp;
+import com.recipe.r.utils.AppSettings;
 import com.recipe.r.utils.Logger;
 import com.recipe.r.utils.MD5Util;
+import com.recipe.r.utils.ToastUtil;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -136,6 +138,7 @@ public class Wx {
     private void payOrder(String order_sn) {
         String url = Config.URL + Config.ORDERPREPAY;
         Map<String, String> params = new HashMap<>();
+        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("order_sn", order_sn);
         params.put("payment_id", "2");
         params.put("device", "android");
@@ -160,6 +163,8 @@ public class Wx {
                                 IWXAPI api = WXAPIFactory.createWXAPI(context, ConfigApp.WX_PP_ID);// 获取实例
                                 api.registerApp(ConfigApp.WX_PP_ID);
                                 api.sendReq(genPayReq(data.getString("prepay_id")));
+                            }else {
+                                ToastUtil.show(context,response.getString("info"),500);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
