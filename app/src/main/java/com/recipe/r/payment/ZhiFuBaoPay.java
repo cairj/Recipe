@@ -18,6 +18,7 @@ import com.recipe.r.base.BaseApplication;
 import com.recipe.r.base.Config;
 import com.recipe.r.base.ConfigApp;
 import com.recipe.r.events.MessageEvent;
+import com.recipe.r.utils.AppSettings;
 import com.recipe.r.utils.Logger;
 import com.recipe.r.utils.OrderInfoUtil2_0;
 import com.tsy.sdk.myokhttp.MyOkHttp;
@@ -143,6 +144,7 @@ public class ZhiFuBaoPay {
         params.put("payment_id", "2");
         params.put("device", "android");
         params.put("pay_type", "prepay");
+        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

@@ -253,6 +253,7 @@ public class AdressActivity extends BaseActivity implements
                     //TODO 购物地址
                     Intent mIntent = new Intent();
                     mIntent.putExtra("address_id", adapter.getItem(position).getAddress_id());
+                    mIntent.putExtra("address", adapter.getItem(position));
                     setResult(resultCode, mIntent);
                     finish();
                 } else {

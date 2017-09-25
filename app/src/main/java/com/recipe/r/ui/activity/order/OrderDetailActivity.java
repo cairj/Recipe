@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.recipe.r.R;
 import com.recipe.r.base.Config;
 import com.recipe.r.base.ConfigApp;
+import com.recipe.r.entity.Address;
 import com.recipe.r.entity.OrderConfirmModel;
 import com.recipe.r.payment.ZhiFuBaoPay;
 import com.recipe.r.ui.activity.BaseActivity;
@@ -629,8 +630,20 @@ public class OrderDetailActivity extends BaseActivity implements View.OnClickLis
                 // TODO
                 if (resultCode == Address_RESULT_CODE) {
                     //地址id
+                    Address.Adress address= (Address.Adress) data.getSerializableExtra("address");
                     Address_Id = data.getStringExtra("address_id");
-                    initData();
+                    if (shopcarList==null||shopcarList.isEmpty()) {
+                        initData();
+                    }else {
+                        sure_order_addressLL.setVisibility(View.VISIBLE);
+                        shop_eat_ll.setVisibility(View.GONE);
+                        ll_order_time.setVisibility(View.GONE);
+                        ll_delivery_time.setVisibility(View.VISIBLE);
+                        sure_order_phoneTv.setText(address.getConsignee() + "   电话号:" + address.getMobile());
+                        sure_order_addressTv.setText(address.getAddress());
+                        Settlement_tv.setEnabled(true);
+                        Settlement_tv.setBackgroundColor(getResources().getColor(R.color.main_red));
+                    }
                 }
                 break;
             case TABLE_Code:

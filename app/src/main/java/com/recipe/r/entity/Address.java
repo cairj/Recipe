@@ -1,5 +1,6 @@
 package com.recipe.r.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +35,7 @@ public class Address {
         this.data = data;
     }
 
-    public class Adress {
+    public class Adress implements Serializable{
         private String title;
         private String address;//详细地址
         private int status;//是否默认

@@ -21,6 +21,7 @@ import com.recipe.r.entity.TableItem;
 import com.recipe.r.events.MessageEvent;
 import com.recipe.r.payment.ZhiFuBaoPay;
 import com.recipe.r.ui.activity.BaseActivity;
+import com.recipe.r.ui.activity.order.PaymentActivity;
 import com.recipe.r.ui.dialog.DatePickDialog;
 import com.recipe.r.ui.dialog.PayWayDialog;
 import com.recipe.r.ui.widget.SpinerPopWindow;
@@ -126,6 +127,12 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
     }
 
     private void initView() {
+        getReturnView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                QuickTableActivity.this.finish();
+            }
+        });
         name_shop = (TextView) findViewById(R.id.name_shop);
         time_eat = (TextView) findViewById(R.id.time_dining);
         hour_dining = (TextView) findViewById(R.id.hour_dining);

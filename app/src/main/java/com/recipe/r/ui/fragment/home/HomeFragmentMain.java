@@ -883,6 +883,8 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
         Map<String, String> params = new HashMap<>();
         params.put("goods_id", GOODID);
         params.put("device", "android");
+        params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
+        params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
         mMyOkhttp.post()
                 .url(url)
                 .params(params)
@@ -959,20 +961,13 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
                                             if (response.getData().getColleted() == null) {
                                                 //添加收藏
                                                 setCollect(GOODID, "1");
-                                                dialog.getCollectionText().setText("取消收藏");
-                                                dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
-
                                             } else {
                                                 if (response.getData().getColleted().equals("0")) {
                                                     //添加收藏
                                                     setCollect(GOODID, "1");
-                                                    dialog.getCollectionText().setText("取消收藏");
-                                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_bule));
                                                 } else if (response.getData().getColleted().equals("1")) {
                                                     //取消收藏
                                                     setCollect(GOODID, "0");
-                                                    dialog.getCollectionText().setText("收藏");
-                                                    dialog.getCollectionText().setTextColor(context.getResources().getColor(R.color.text_color));
                                                 }
                                             }
                                             break;
@@ -1051,7 +1046,7 @@ public class HomeFragmentMain extends BaseFragment implements TranslucentScrollV
         String url = Config.URL + Config.COLLECT;
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
-        //params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
+        params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
         params.put("device", "android");
         params.put("goods_id", goodId);
         params.put("type", type);//0，取消收藏，1，收藏，默认为1
