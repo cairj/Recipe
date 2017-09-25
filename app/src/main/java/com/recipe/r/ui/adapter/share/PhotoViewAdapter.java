@@ -16,6 +16,7 @@ import com.recipe.r.utils.WeakImageViewUtil;
 import java.util.ArrayList;
 
 import uk.co.senab.photoview.PhotoView;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * @功能：相册Gallery适配器adapter
@@ -40,6 +41,7 @@ public class PhotoViewAdapter extends PagerAdapter {
 
     public void updateList(ArrayList<ImageBean> list) {
         this.list = list;
+        viewList.clear();
         for (int i=0;i<list.size();i++){
             PhotoView photoView = new PhotoView(context);
             photoView.setAdjustViewBounds(true);
@@ -48,6 +50,14 @@ public class PhotoViewAdapter extends PagerAdapter {
             // photoView.setScaleType(ScaleType.FIT_XY);
             photoView.setScaleType(ScaleType.FIT_CENTER);
             ShowImageUtils.showImageView(context, R.mipmap.default_photo, Config.IMAGE_URL + list.get(i).getImageUrl(), WeakImageViewUtil.getImageView(photoView));
+            photoView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
+                @Override
+                public void onPhotoTap(View view, float v, float v1) {
+                    if (itemOnClickListener!=null){
+                        itemOnClickListener.click();
+                    }
+                }
+            });
             viewList.add(photoView);
         }
         notifyDataSetChanged();
@@ -82,14 +92,6 @@ public class PhotoViewAdapter extends PagerAdapter {
     @Override
     public View instantiateItem(ViewGroup container, int position) {
         PhotoView photoView= viewList.get(position);
-        photoView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (itemOnClickListener!=null){
-                    itemOnClickListener.click();
-                }
-            }
-        });
 
         container.setBackgroundColor(context.getResources().getColor(
                 R.color.black));

@@ -114,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/time_reservation"
                 android:gravity="right|center_vertical"
                 android:orientation="horizontal">
 
@@ -128,7 +129,7 @@
                         android:layout_marginLeft="12dp"
                         android:text="共计："
                         android:textColor="@color/text_color"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/number_reservation"
@@ -136,7 +137,7 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="@color/text_color"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -150,15 +151,15 @@
                         android:layout_marginLeft="12dp"
                         android:text="合计："
                         android:textColor="@color/text_color"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/price_reservation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="3dp"
                         android:textColor="@color/main_red"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -172,15 +173,15 @@
                         android:layout_marginLeft="12dp"
                         android:text="订金："
                         android:textColor="@color/text_color"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/deposit_reservation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginLeft="3dp"
                         android:textColor="@color/main_red"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>

@@ -169,8 +169,8 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             });
         }
         ((ReservationAdapter.Item2ViewHolder) holder).number_reservation.setText(reservationItem.getPeople_num() + "人");
-        ((ReservationAdapter.Item2ViewHolder) holder).price_reservation.setText("" + reservationItem.getFinal_total());
-        ((ReservationAdapter.Item2ViewHolder) holder).deposit_reservation.setText("" + reservationItem.getPaid_total());
+        ((ReservationAdapter.Item2ViewHolder) holder).price_reservation.setText("" + reservationItem.getFinal_total().trim());
+        ((ReservationAdapter.Item2ViewHolder) holder).deposit_reservation.setText("" + reservationItem.getPaid_total().trim());
         ShowImageUtils.showImageView(context, R.mipmap.default_photo, Config.IMAGE_URL + reservationItem.getTable_image(), WeakImageViewUtil.getImageView(((ReservationAdapter.Item2ViewHolder) holder).iv_reservation));
         ((ReservationAdapter.Item2ViewHolder) holder).pay_reservation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -331,10 +331,10 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                                          if (data.getInt("status")==0
                                                  &&data.getJSONObject("goods").has("count")
                                                  && data.getJSONObject("goods").getDouble("count")==0){
-                                             initDialog(data.getString("order_sn"), Double.valueOf(100));
+                                             initDialog(data.getString("order_sn"),"prepay", Double.valueOf(100));
                                          }else {
-                                             String key = data.getJSONObject("goods").getInt("order_type") == 1 ? "remain_total" : "final_total";
-                                             initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble(key));
+                                             String key = data.getInt("order_type") == 1 ? "remain_total" : "final_total";
+                                             initDialog(data.getString("order_sn"),"finalpay", data.getJSONObject("goods").getDouble(key));
                                          }
                                      } else {
                                          //TODO 订单无效
@@ -390,7 +390,7 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     /**
      * 初始化支付方式Dialog
      */
-    private void initDialog(final String ORDER_SN, Double totalMoney) {
+    private void initDialog(final String ORDER_SN, final String payType, Double totalMoney) {
         // 隐藏输入法
         pay_dialog = new PayWayDialog(context, R.style.recharge_pay_dialog, new View.OnClickListener() {
             @Override
@@ -399,7 +399,7 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     //支付宝支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         ZhiFuBaoPay aliPay = new ZhiFuBaoPay(context);
-                        aliPay.payAliBaba(1, "0", ORDER_SN);
+                        aliPay.payAliBaba(1, payType, ORDER_SN);
                     } else {
                         ToastUtil.show(context, "订单生成失败", 500);
                     }
@@ -408,7 +408,7 @@ public class ReservationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     //微信支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         Wx weixin_pay = new Wx(context);
-                        weixin_pay.sendPayReq(ORDER_SN, "0");
+                        weixin_pay.sendPayReq(ORDER_SN, payType);
                     } else {
                         ToastUtil.show(context, "订单生成失败", 500);
                     }

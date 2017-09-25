@@ -156,7 +156,7 @@ public class AddressAdapter extends BaseAdapter {
                 intent.putExtra("isDefault", address.getStatus());
                 intent.putExtra("receiverName", address.getConsignee());
                 intent.putExtra("receiverPhone", address.getMobile());
-                intent.putExtra("receiverAddrId", address.getUser_id());
+                intent.putExtra("receiverAddrId", address.getAddress_id());
                 context.startActivity(intent);
             }
         });

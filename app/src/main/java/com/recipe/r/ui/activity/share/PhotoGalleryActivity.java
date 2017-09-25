@@ -49,15 +49,15 @@ public class PhotoGalleryActivity extends Activity {
         setContentView(mViewPager);
         adapter = new PhotoViewAdapter(activity);
         // adapter = new PhotoViewAdapter(activity);
-        adapter.updateList(list);
-        mViewPager.setAdapter(adapter);
-        mViewPager.setCurrentItem(position);
         adapter.setItemOnClickListener(new PhotoViewAdapter.ItemOnClickListener() {
             @Override
             public void click() {
                 finish();
             }
         });
+        adapter.updateList(list);
+        mViewPager.setAdapter(adapter);
+        mViewPager.setCurrentItem(position);
         // gallery = (GuideGallery) this.findViewById(R.id.gallery_photos);
         // gallery.setAdapter(adapter);
         // gallery.setOnItemClickListener(new OnItemClickListener() {

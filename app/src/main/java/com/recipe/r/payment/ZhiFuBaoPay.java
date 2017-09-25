@@ -129,7 +129,7 @@ public class ZhiFuBaoPay {
         } else {
 
         }
-        payOrder(order_sn);
+        payOrder(order_sn,type);
     }
 
     /**
@@ -138,14 +138,14 @@ public class ZhiFuBaoPay {
      *
      * @param order_sn
      */
-    private void payOrder(String order_sn) {
+    private void payOrder(String order_sn,String pay_type) {
         String url = Config.URL + Config.ORDERPREPAY;
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("order_sn", order_sn);
-        params.put("payment_id", "2");
+        params.put("payment_id", "1");
         params.put("device", "android");
-        params.put("pay_type", "prepay");
+        params.put("pay_type", pay_type/*"prepay"*/);
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         mMyOkhttp.post()
                 .url(url)
@@ -164,7 +164,7 @@ public class ZhiFuBaoPay {
                             int status = response.getInt("status");
                             JSONObject data = response.getJSONObject("data");
                             if (status == 1) {
-                                payZFB(data.getString("prepay_id"));
+                                payZFB(data.getString("order_string"));
                             }else {
                                 ToastUtil.show(context,response.getString("info"),500);
                             }

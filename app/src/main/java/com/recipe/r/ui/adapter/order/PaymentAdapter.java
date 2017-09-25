@@ -175,7 +175,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             });
         }
         ((PaymentAdapter.Item2ViewHolder) holder).number_payment.setText("共计" + PaymentItem.getPeople_num() + "人");
-        ((PaymentAdapter.Item2ViewHolder) holder).price_payment.setText("￥" + PaymentItem.getFinal_total());
+        ((PaymentAdapter.Item2ViewHolder) holder).price_payment.setText("￥" + (PaymentItem.getOrder_type().equals("1")?PaymentItem.getRemain_total():PaymentItem.getFinal_total()));
         ((PaymentAdapter.Item2ViewHolder) holder).deposit_payment.setText("￥" + PaymentItem.getPaid_total());
         if (!TextUtils.isEmpty(PaymentItem.getTable_image())) {
             ShowImageUtils.showImageView(context, R.mipmap.default_photo, Config.IMAGE_URL + PaymentItem.getTable_image(), WeakImageViewUtil.getImageView(((PaymentAdapter.Item2ViewHolder) holder).iv_payment));
@@ -406,8 +406,14 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                      String info = response.getString("info");
                                      JSONObject data = response.getJSONObject("data");
                                      if (status == 1) {
-                                         String key=data.getJSONObject("goods").getInt("order_type")==1?"remain_total":"final_total";
-                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble(key));
+                                         if (data.getInt("status")==0
+                                                 &&data.getJSONObject("goods").has("count")
+                                                 && data.getJSONObject("goods").getDouble("count")==0){
+                                             initDialog(data.getString("order_sn"),"prepay", Double.valueOf(100));
+                                         }else {
+                                             String key = data.getInt("order_type") == 1 ? "remain_total" : "final_total";
+                                             initDialog(data.getString("order_sn"),"finalpay", data.getJSONObject("goods").getDouble(key));
+                                         }
                                      } else {
                                          ToastUtil.show(context, info, 100);
                                          Intent intent = new Intent(context, MainActivity.class);
@@ -461,7 +467,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     /**
      * 初始化支付方式Dialog
      */
-    private void initDialog(final String ORDER_SN, Double totalMoney) {
+    private void initDialog(final String ORDER_SN, final String payType, Double totalMoney) {
         // 隐藏输入法
         pay_dialog = new PayWayDialog(context, R.style.recharge_pay_dialog, new View.OnClickListener() {
             @Override
@@ -470,7 +476,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     //支付宝支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         ZhiFuBaoPay aliPay = new ZhiFuBaoPay(context);
-                        aliPay.payAliBaba(1, "0", ORDER_SN);
+                        aliPay.payAliBaba(1, payType, ORDER_SN);
                     } else {
                         ToastUtil.show(context, "订单生成失败", 500);
                     }
@@ -479,7 +485,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     //微信支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         Wx weixin_pay = new Wx(context);
-                        weixin_pay.sendPayReq(ORDER_SN, "0");
+                        weixin_pay.sendPayReq(ORDER_SN, payType);
                     } else {
                         ToastUtil.show(context, "订单生成失败", 500);
                     }

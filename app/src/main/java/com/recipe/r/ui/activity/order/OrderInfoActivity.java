@@ -174,10 +174,16 @@ public class OrderInfoActivity extends BaseActivity {
                                     people_num_orderinfo.setText(data.getString("people_num") + "人");
                                     time_orderinfo.setText(DateUtil.getDateToString2(Long.parseLong(data.getString("book_time"))));
                                     consignee_orderinfo.setText(data.getString("consignee"));
-                                    total_price_orderinfo.setText(data.getString("origin_total"));
-                                    String key=data.getJSONObject("goods").getInt("order_type")==1?"remain_total":"final_total";
+                                }
+                                total_price_orderinfo.setText(data.getString("origin_total"));
+
+                                if (data.getInt("status")==0){//待付款
+                                    pay_price_orderinfo.setText("100.0");
+                                }else {
+                                    String key = data.getInt("order_type") == 1 ? "remain_total" : "final_total";
                                     pay_price_orderinfo.setText(data.getString(key));
                                 }
+
                                 JSONArray goods_info = data.getJSONArray("goods_info");
                                 shopcarList.clear();
                                 for (int i = 0; i < goods_info.length(); i++) {

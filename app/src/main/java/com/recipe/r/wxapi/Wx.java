@@ -59,13 +59,13 @@ public class Wx {
         if (mMyOkhttp == null) {
             mMyOkhttp = BaseApplication.getInstance().getMyOkHttp();
         }
-        if (type.equals("0")) {
+        if (type.equals("prepay")) {
             //预支付
             wxNotifyUrl = Config.ADVANCEPAY_BACK;
         } else {
             wxNotifyUrl = Config.PAY_BACK;
         }
-        payOrder(order_sn);
+        payOrder(order_sn,type);
     }
 
 
@@ -135,14 +135,14 @@ public class Wx {
      *
      * @param order_sn
      */
-    private void payOrder(String order_sn) {
+    private void payOrder(String order_sn,String payType) {
         String url = Config.URL + Config.ORDERPREPAY;
         Map<String, String> params = new HashMap<>();
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("order_sn", order_sn);
         params.put("payment_id", "2");
         params.put("device", "android");
-        params.put("pay_type", "prepay");
+        params.put("pay_type",payType);
         mMyOkhttp.post()
                 .url(url)
                 .params(params)

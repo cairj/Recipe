@@ -412,12 +412,11 @@ public class UpRecommendationActivity extends BaseActivity implements View.OnCli
                             try {
                                 int status = response.getInt("status");
                                 String info = response.getString("info");
-                                ToastUtil.show(UpRecommendationActivity.this, info, 500);
                                 if (status == 1) {
                                     ArrayList<String> file_img = new ArrayList<String>();
-                                    JSONObject data = response.getJSONObject("data");
+                                    JSONArray data = response.getJSONArray("data");
                                     for (int i = 0; i < data.length(); i++) {
-                                        file_img.add(data.getString("image" + i));
+                                        file_img.add(data.getString(i));
                                     }
                                     AddRecommend(file_img);
 //                                    //TODO 新界面，跳转编辑菜谱

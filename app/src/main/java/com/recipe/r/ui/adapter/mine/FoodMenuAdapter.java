@@ -297,8 +297,9 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                                      int status = response.getInt("status");
                                      JSONObject data = response.getJSONObject("data");
                                      if (status == 1) {
-                                         String key=data.getJSONObject("goods").getInt("order_type")==1?"remain_total":"final_total";
-                                         initDialog(data.getString("order_sn"), data.getJSONObject("goods").getDouble(key));
+
+                                         String key=data.getInt("order_type")==1?"remain_total":"final_total";
+                                         initDialog(data.getString("order_sn"),"finalpay", data.getJSONObject("goods").getDouble(key));
                                      }
                                  } catch (JSONException e) {
                                      e.printStackTrace();
@@ -317,7 +318,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     /**
      * 初始化支付方式Dialog
      */
-    private void initDialog(final String ORDER_SN, Double totalMoney) {
+    private void initDialog(final String ORDER_SN, final String payType, Double totalMoney) {
         // 隐藏输入法
         pay_dialog = new PayWayDialog(context, R.style.recharge_pay_dialog, new View.OnClickListener() {
             @Override
@@ -326,7 +327,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     //支付宝支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         ZhiFuBaoPay aliPay = new ZhiFuBaoPay(context);
-                        aliPay.payAliBaba(1, "0", ORDER_SN);
+                        aliPay.payAliBaba(1, payType, ORDER_SN);
                     } else {
                         ToastUtil.show(context, "订单生成失败", 500);
                     }
@@ -335,7 +336,7 @@ public class FoodMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     //微信支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         Wx weixin_pay = new Wx(context);
-                        weixin_pay.sendPayReq(ORDER_SN, "0");
+                        weixin_pay.sendPayReq(ORDER_SN, payType);
                     } else {
                         ToastUtil.show(context, "订单生成失败", 500);
                     }

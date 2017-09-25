@@ -25,6 +25,7 @@ import com.foamtrace.photopicker.intent.PhotoPickerIntent;
 import com.recipe.r.R;
 import com.recipe.r.base.Config;
 import com.recipe.r.base.ConfigApp;
+import com.recipe.r.entity.BannerModel;
 import com.recipe.r.entity.ShareItem;
 import com.recipe.r.ui.activity.BaseActivity;
 import com.recipe.r.ui.adapter.share.ShareRecyclerViewAdapter;
@@ -122,10 +123,18 @@ public class ShareActivity extends BaseActivity
                             String info = response.getString("info");
 
                             if (status == 1) {
-                                JSONObject data = response.getJSONObject("data");
+                                /*JSONObject data = response.getJSONObject("data");
                                 JSONArray banner_Images = data.getJSONArray("images");
                                 for (int i = 0; i < banner_Images.length(); i++) {
                                     adapter.setBanner(Config.IMAGE_URL + banner_Images.get(i), 2);
+                                }*/
+                                JSONArray data = response.getJSONArray("data");
+                                for (int i = 0; i < data.length(); i++) {
+                                    BannerModel bannerModel = new BannerModel();
+                                    bannerModel.setTips("" + i);
+                                    bannerModel.setImageUrl(Config.IMAGE_URL + data.getJSONObject(i).getString("thumb"));
+                                    bannerModel.setHref(Config.IMAGE_URL + data.getJSONObject(i).getString("href"));
+                                    adapter.setBanner(bannerModel.getImageUrl(), 2);
                                 }
 
                             }

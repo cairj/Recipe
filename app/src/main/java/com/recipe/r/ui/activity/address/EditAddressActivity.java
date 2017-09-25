@@ -224,7 +224,7 @@ public class EditAddressActivity extends BaseActivity {
         params.put("user_id", AppSettings.getPrefString(context, ConfigApp.USERID, ""));
         params.put("token", AppSettings.getPrefString(context, ConfigApp.TOKEN, ""));
         params.put("device","android");
-        params.put("provice", provice);
+        params.put("province", provice);
         params.put("city", city);
         params.put("district", district);
         params.put("address", detailAddr);

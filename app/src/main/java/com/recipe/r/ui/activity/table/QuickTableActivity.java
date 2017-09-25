@@ -366,7 +366,7 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
                     //支付宝支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         ZhiFuBaoPay aliPay = new ZhiFuBaoPay(QuickTableActivity.this);
-                        aliPay.payAliBaba(1, "0", ORDER_SN);
+                        aliPay.payAliBaba(1, "prepay", ORDER_SN);
                     } else {
                         ToastUtil.show(QuickTableActivity.this, "订单生成失败", 500);
                     }
@@ -375,7 +375,7 @@ public class QuickTableActivity extends BaseActivity implements View.OnClickList
                     //微信支付
                     if (!TextUtils.isEmpty(ORDER_SN)) {
                         Wx weixin_pay = new Wx(QuickTableActivity.this);
-                        weixin_pay.sendPayReq(ORDER_SN, "0");
+                        weixin_pay.sendPayReq(ORDER_SN, "prepay");
                     } else {
                         ToastUtil.show(QuickTableActivity.this, "订单生成失败", 500);
                     }
